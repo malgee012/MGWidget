@@ -1,0 +1,20 @@
+//
+//  PrefixHeader.pch
+//  MGWidget
+//
+//  Created by acmeway on 2018/3/28.
+//  Copyright © 2018年 acmeway. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "UIView+Frame.h"
+
+
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#define MGColor [UIColor colorWithRed:0.29f green:0.89f blue:0.93f alpha:1.00f]
+
+#endif /* PrefixHeader_pch */
