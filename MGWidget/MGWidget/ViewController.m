@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
-
+#import "MGShowController.h"
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) UITableView *displayTalbleView;
+@property (nonatomic, strong) UITableView *displayTableView;
+
+@property (nonatomic, strong) NSMutableArray *styleArray;
 
 @end
 
@@ -21,12 +23,23 @@ static NSString *const reuseIdentifiter = @"cellID";
     [super viewDidLoad];
     
     
-    [self.view addSubview:self.displayTalbleView];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    [self.view addSubview:self.displayTableView];
+    
+    self.displayTableView.rowHeight = 50;
+    
+    _styleArray = @[
+                    @"MGEffectStyleDrop",
+                    @"MGEffectStyleThimble",
+                    @"MGEffectStyleCircle",
+                    @"MGEffectStyleStrip"
+                    ].mutableCopy;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _styleArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -37,7 +50,9 @@ static NSString *const reuseIdentifiter = @"cellID";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifiter];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@">>> %ld", indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.textLabel.text = _styleArray[indexPath.row];
     
     NSInteger rows = [tableView numberOfRowsInSection:indexPath.section];
     
@@ -46,22 +61,33 @@ static NSString *const reuseIdentifiter = @"cellID";
     return cell;
 }
 
-- (UITableView *)displayTalbleView
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!_displayTalbleView) {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    MGShowController *showVC = [[MGShowController alloc] initWithType:indexPath.row];
+    
+    [self.navigationController pushViewController:showVC animated:YES];
+}
+
+- (UITableView *)displayTableView
+{
+    if (!_displayTableView) {
         
-        _displayTalbleView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        _displayTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
         
-        _displayTalbleView.delegate = self;
+        _displayTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         
-        _displayTalbleView.dataSource = self;
+        _displayTableView.delegate = self;
         
-        _displayTalbleView.separatorColor = [UIColor whiteColor];
+        _displayTableView.dataSource = self;
         
-        _displayTalbleView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        _displayTableView.separatorColor = [UIColor whiteColor];
+        
+        _displayTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         
     }
-    return _displayTalbleView;
+    return _displayTableView;
 }
 
 @end

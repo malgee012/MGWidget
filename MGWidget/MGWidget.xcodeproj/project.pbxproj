@@ -16,6 +16,9 @@
 		157D46FE206BAABC00A0BC22 /* MGWidgetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D46FD206BAABC00A0BC22 /* MGWidgetTests.m */; };
 		157D4709206BAABC00A0BC22 /* MGWidgetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D4708206BAABC00A0BC22 /* MGWidgetUITests.m */; };
 		157D4718206BABBA00A0BC22 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D4717206BABBA00A0BC22 /* UIView+Frame.m */; };
+		157D4722206CCCC000A0BC22 /* MGShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D4721206CCCC000A0BC22 /* MGShowController.m */; };
+		157D4725206CD18700A0BC22 /* MGShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D4724206CD18700A0BC22 /* MGShowView.m */; };
+		157D4728206CEAA400A0BC22 /* NSObject+common.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D4727206CEAA400A0BC22 /* NSObject+common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,12 @@
 		157D4716206BABBA00A0BC22 /* UIView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		157D4717206BABBA00A0BC22 /* UIView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		157D4719206BABDA00A0BC22 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		157D4720206CCCC000A0BC22 /* MGShowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGShowController.h; sourceTree = "<group>"; };
+		157D4721206CCCC000A0BC22 /* MGShowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGShowController.m; sourceTree = "<group>"; };
+		157D4723206CD18700A0BC22 /* MGShowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGShowView.h; sourceTree = "<group>"; };
+		157D4724206CD18700A0BC22 /* MGShowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGShowView.m; sourceTree = "<group>"; };
+		157D4726206CEAA400A0BC22 /* NSObject+common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+common.h"; sourceTree = "<group>"; };
+		157D4727206CEAA400A0BC22 /* NSObject+common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+common.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +114,13 @@
 		157D46E3206BAABC00A0BC22 /* MGWidget */ = {
 			isa = PBXGroup;
 			children = (
+				157D4729206CFD8D00A0BC22 /* MGWidget */,
 				157D46E4206BAABC00A0BC22 /* AppDelegate.h */,
 				157D46E5206BAABC00A0BC22 /* AppDelegate.m */,
 				157D46E7206BAABC00A0BC22 /* ViewController.h */,
 				157D46E8206BAABC00A0BC22 /* ViewController.m */,
-				157D4716206BABBA00A0BC22 /* UIView+Frame.h */,
-				157D4717206BABBA00A0BC22 /* UIView+Frame.m */,
+				157D4720206CCCC000A0BC22 /* MGShowController.h */,
+				157D4721206CCCC000A0BC22 /* MGShowController.m */,
 				157D4719206BABDA00A0BC22 /* PrefixHeader.pch */,
 				157D46EA206BAABC00A0BC22 /* Main.storyboard */,
 				157D46ED206BAABC00A0BC22 /* Assets.xcassets */,
@@ -137,6 +147,19 @@
 				157D470A206BAABC00A0BC22 /* Info.plist */,
 			);
 			path = MGWidgetUITests;
+			sourceTree = "<group>";
+		};
+		157D4729206CFD8D00A0BC22 /* MGWidget */ = {
+			isa = PBXGroup;
+			children = (
+				157D4723206CD18700A0BC22 /* MGShowView.h */,
+				157D4724206CD18700A0BC22 /* MGShowView.m */,
+				157D4726206CEAA400A0BC22 /* NSObject+common.h */,
+				157D4727206CEAA400A0BC22 /* NSObject+common.m */,
+				157D4716206BABBA00A0BC22 /* UIView+Frame.h */,
+				157D4717206BABBA00A0BC22 /* UIView+Frame.m */,
+			);
+			path = MGWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,10 +295,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				157D4728206CEAA400A0BC22 /* NSObject+common.m in Sources */,
+				157D4722206CCCC000A0BC22 /* MGShowController.m in Sources */,
 				157D4718206BABBA00A0BC22 /* UIView+Frame.m in Sources */,
 				157D46E9206BAABC00A0BC22 /* ViewController.m in Sources */,
 				157D46F4206BAABC00A0BC22 /* main.m in Sources */,
 				157D46E6206BAABC00A0BC22 /* AppDelegate.m in Sources */,
+				157D4725206CD18700A0BC22 /* MGShowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
