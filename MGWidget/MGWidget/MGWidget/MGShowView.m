@@ -124,6 +124,28 @@
 
         }
             break;
+        case MGEffectStyleShape:
+        {
+            _indicatorLayer.frame = self.bounds;
+            
+            _indicatorLayer.path = [self pathWithEffectType:type].CGPath;
+            
+            _indicatorLayer.fillColor = [UIColor redColor].CGColor;
+            
+            _indicatorLayer.position = CGPointMake(kScreenWidth / 2.0, kScreenWidth );
+
+            _indicatorLayer.anchorPoint = CGPointMake(0.5, 0.5);
+            
+            
+            _replicatorLayer.instanceCount = 5;
+
+            _replicatorLayer.instanceDelay = 3.0 / 5;
+
+            _replicatorLayer.instanceColor = [UIColor redColor].CGColor;
+            
+            
+        }
+            break;
         default:
             break;
     }

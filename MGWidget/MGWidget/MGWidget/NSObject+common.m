@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+common.h"
+#import <objc/runtime.h>
 
 @implementation NSObject (common)
 
@@ -33,16 +34,30 @@
         }
             break;
         case MGEffectStyleCircle:
+            break;
+        case MGEffectStyleStrip:
+            break;
+        case MGEffectStyleShape:
         {
-          
+            CGFloat layerY = (kScreenWidth * 1.5 - 45) / 2.0;
+            
+            tPath = [UIBezierPath bezierPath];
+            
+            [tPath moveToPoint:CGPointMake(kScreenWidth/2.0, layerY)];
+            
+            [tPath addQuadCurveToPoint:CGPointMake(kScreenWidth/2.0, layerY + 45) controlPoint:CGPointMake(kScreenWidth/2.0 + 55, layerY - 20)];
+            
+            [tPath addQuadCurveToPoint:CGPointMake(kScreenWidth/2.0, layerY) controlPoint:CGPointMake(kScreenWidth/2.0 - 55, layerY - 20)];
+            
+            [tPath closePath];
         }
             break;
-            
         default:
             break;
     }
     return tPath;
 }
+
 
 - (void)addAnimationWithEffectType:(MGEffectStyle)type
 {
@@ -90,6 +105,10 @@
             [layer addAnimation:stripAnimation forKey:stripAnimation.keyPath];
         }
             break;
+        case MGEffectStyleShape:
+        {
+            [self addAnimationWithLayer:layer];
+        }
         default:
             break;
     }
@@ -117,7 +136,6 @@
 }
 
 - (CABasicAnimation *)animationKeyPath:(NSString *)keyPath
-
                                     to:(NSNumber *)toValue
                               duration:(CFTimeInterval)duration
                             isReverses:(BOOL)isReverses
@@ -136,6 +154,33 @@
     animation.removedOnCompletion = NO;
     
     return animation;
+}
+
+- (void)addAnimationWithLayer:(CALayer *)layer
+{
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    
+    animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(10, 10, 1)];
+    
+    animation.duration = 3;
+    
+    CABasicAnimation *animation1 = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    
+    animation1.fromValue = @1;
+    
+    animation1.toValue = @0;
+    
+    animation1.duration = 3;
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    
+    group.animations = @[animation,animation1];
+    
+    group.duration = 3;
+    
+    group.repeatCount = HUGE;
+    
+    [layer addAnimation:group forKey:nil];
 }
 
 

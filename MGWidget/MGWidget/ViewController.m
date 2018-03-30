@@ -33,7 +33,8 @@ static NSString *const reuseIdentifiter = @"cellID";
                     @"MGEffectStyleDrop",
                     @"MGEffectStyleThimble",
                     @"MGEffectStyleCircle",
-                    @"MGEffectStyleStrip"
+                    @"MGEffectStyleStrip",
+                    @"MGEffectStyleShape"
                     ].mutableCopy;
 }
 

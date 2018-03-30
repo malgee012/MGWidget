@@ -13,7 +13,9 @@ typedef NS_ENUM(NSInteger, MGEffectStyle) {
     MGEffectStyleDrop,
     MGEffectStyleThimble,
     MGEffectStyleCircle,
-    MGEffectStyleStrip
+    MGEffectStyleStrip,
+    MGEffectStyleShape
+    
 };
 
 @interface NSObject (common)
