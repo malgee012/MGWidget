@@ -10,6 +10,7 @@
 
 @interface MGShowController : UIViewController
 
-- (instancetype)initWithType:(MGEffectStyle)type;
+- (instancetype)initWithType:(MGEffectStyle)type section:(NSInteger)section;
+
 
 @end

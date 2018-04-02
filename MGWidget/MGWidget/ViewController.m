@@ -22,7 +22,6 @@ static NSString *const reuseIdentifiter = @"cellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self.view addSubview:self.displayTableView];
@@ -30,17 +29,27 @@ static NSString *const reuseIdentifiter = @"cellID";
     self.displayTableView.rowHeight = 50;
     
     _styleArray = @[
-                    @"MGEffectStyleDrop",
+                    @[@"MGEffectStyleDrop",
                     @"MGEffectStyleThimble",
                     @"MGEffectStyleCircle",
                     @"MGEffectStyleStrip",
-                    @"MGEffectStyleShape"
+                    @"MGEffectStyleShape",
+                    @"MGEffectStyleLinear",
+                    @"MGEffectStyleTriangle"],
+                    @[@"MGLoaderStyleTriangle"]
                     ].mutableCopy;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return _styleArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _styleArray.count;
+    NSArray *dateArray = _styleArray[section];
+    
+    return dateArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -53,20 +62,53 @@ static NSString *const reuseIdentifiter = @"cellID";
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.textLabel.text = _styleArray[indexPath.row];
+    NSArray *dateArray = _styleArray[indexPath.section];
+    
+    cell.textLabel.text = dateArray[indexPath.row];
     
     NSInteger rows = [tableView numberOfRowsInSection:indexPath.section];
     
-    cell.backgroundColor = [MGColor colorWithAlphaComponent:(rows - indexPath.row *0.5)/rows];
+    cell.backgroundColor = [MGColor colorWithAlphaComponent:(rows - indexPath.row *0.5) / rows];
     
     return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
+    
+    label.textAlignment = NSTextAlignmentCenter;
+    
+    label.textColor = MGColor;
+    
+    if (section == 0)
+    {
+        label.text = @"MGEffectStyle";
+    }
+    else if (section == 1)
+    {
+        label.text = @"MGLoaderStyle";
+    }
+    
+    return label;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 44;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    MGShowController *showVC = [[MGShowController alloc] initWithType:indexPath.row];
+    MGShowController *showVC = [[MGShowController alloc] initWithType:indexPath.row section:indexPath.section];
+    
     
     [self.navigationController pushViewController:showVC animated:YES];
 }
@@ -75,7 +117,7 @@ static NSString *const reuseIdentifiter = @"cellID";
 {
     if (!_displayTableView) {
         
-        _displayTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+        _displayTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         
         _displayTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         

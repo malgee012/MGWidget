@@ -14,14 +14,22 @@ typedef NS_ENUM(NSInteger, MGEffectStyle) {
     MGEffectStyleThimble,
     MGEffectStyleCircle,
     MGEffectStyleStrip,
-    MGEffectStyleShape
-    
+    MGEffectStyleShape,
+    MGEffectStyleLinear, 
+    MGEffectStyleTriangle
 };
 
-@interface NSObject (common)
+typedef NS_ENUM(NSInteger, MGLoaderStyle) {
+    
+    MGLoaderStyleTriangle
+};
+
+@interface NSObject (common)<CAAnimationDelegate>
 
 - (UIBezierPath *)pathWithEffectType:(MGEffectStyle)type;
 
 - (void)addAnimationWithEffectType:(MGEffectStyle)type;
+
+- (void)setupLineBtnShowStatus:(BOOL)status btnArray:(NSArray *)btnArray;
 
 @end

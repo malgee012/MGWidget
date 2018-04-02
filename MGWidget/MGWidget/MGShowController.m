@@ -8,20 +8,24 @@
 
 #import "MGShowController.h"
 #import "MGShowView.h"
-@interface MGShowController ()
+#import "MGLoaderView.h"
+@interface MGShowController ()<CAAnimationDelegate>
 
 @property (nonatomic, assign) MGEffectStyle type;
 
+@property (nonatomic, assign) NSInteger section;
 
 @end
 
 @implementation MGShowController
 
-- (instancetype)initWithType:(MGEffectStyle)type
+- (instancetype)initWithType:(MGEffectStyle)type section:(NSInteger)section
 {
     if (self = [super init]) {
         
         self.type = type;
+        
+        self.section = section;
     }
     return self;
 }
@@ -29,15 +33,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
     self.view.backgroundColor = [UIColor whiteColor];
     
-    MGShowView *showView = [MGShowView showWithType:_type];
+    if (self.section == 0)
+    {
+        MGShowView *showView = [MGShowView showWithType:_type];
+        
+        [self.view addSubview:showView];
+    }
+    else
+    {
+        
+        for (int i = 0; i < 3; i++) {
+        
+            MGLoaderView *loaderView = [MGLoaderView loader];
+            
+            loaderView.centerX = self.view.centerX;
+            
+            loaderView.y = 30 + (100 + 30) * i;
+            
+            loaderView.style = i;
+        
+            [self.view addSubview:loaderView];
+        }
+        
+    }
     
-    [self.view addSubview:showView];
     
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

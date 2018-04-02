@@ -15,6 +15,26 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kNavigationBarHeight self.navigationController.navigationBar.frame.size.height
+
+#define kNavigationStatusHeiht (isPhoneX ? 88 : 64)
+
+#define isPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define kMinValue(a,b) (a<b)?(a):(b)
+
+#define kMaxValue(a,b) (a<b)?(b):(a)
+
 #define MGColor [UIColor colorWithRed:0.29f green:0.89f blue:0.93f alpha:1.00f]
+
+#define kBgColor [UIColor colorWithRed:0.50f green:0.45f blue:0.93f alpha:1.00f]
+
+
+#ifdef DEBUG   
+#define DLog(fmt, ...) NSLog((@"[Line %d] " fmt), __LINE__, ##__VA_ARGS__)
+#else
+#define DLog(...)
+#endif
 
 #endif /* PrefixHeader_pch */
