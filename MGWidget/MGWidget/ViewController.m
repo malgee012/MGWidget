@@ -33,6 +33,7 @@ static NSString *const reuseIdentifiter = @"cellID";
                     @"MGEffectStyleThimble",
                     @"MGEffectStyleCircle",
                     @"MGEffectStyleStrip",
+                    @"MGEffectStyleWoody",
                     @"MGEffectStyleShape",
                     @"MGEffectStyleLinear",
                     @"MGEffectStyleTriangle"],
@@ -109,6 +110,7 @@ static NSString *const reuseIdentifiter = @"cellID";
     
     MGShowController *showVC = [[MGShowController alloc] initWithType:indexPath.row section:indexPath.section];
     
+    showVC.title = _styleArray[indexPath.section][indexPath.row];
     
     [self.navigationController pushViewController:showVC animated:YES];
 }

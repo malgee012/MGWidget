@@ -39,6 +39,8 @@ static char *kBtnKey = "kBtnKey";
             break;
         case MGEffectStyleStrip:
             break;
+        case MGEffectStyleWoody:
+            break;
         case MGEffectStyleShape:
         {
             UIView *view = (UIView *)self;
@@ -57,9 +59,6 @@ static char *kBtnKey = "kBtnKey";
         }
             break;
         case MGEffectStyleLinear:
-        {
-            
-        }
             break;
         case MGEffectStyleTriangle:
         {
@@ -128,6 +127,16 @@ static char *kBtnKey = "kBtnKey";
                                                             repeatTime:INFINITY];
 
             [layer addAnimation:stripAnimation forKey:stripAnimation.keyPath];
+        }
+            break;
+        case MGEffectStyleWoody:
+        {
+            CABasicAnimation *woodyAnimation = [self animationKeyPath:@"transform.scale.y"
+                                                                   to:@(0.2)
+                                                             duration:0.7
+                                                           isReverses:YES
+                                                           repeatTime:INFINITY];
+            [layer addAnimation:woodyAnimation forKey:woodyAnimation.keyPath];
         }
             break;
         case MGEffectStyleShape:
@@ -200,6 +209,27 @@ static char *kBtnKey = "kBtnKey";
     
     return animation;
 }
+
+//- (CABasicAnimation *)animationKeyPath2:(NSString *)keyPath
+//                                    to:(NSNumber *)toValue
+//                              duration:(CFTimeInterval)duration
+//                            isReverses:(BOOL)isReverses
+//                            repeatTime:(CGFloat)repeat
+//{
+//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:keyPath];
+//
+//    animation.toValue = toValue;
+//
+//    animation.duration = duration;
+//
+//    animation.autoreverses = isReverses;
+//
+//    animation.repeatCount = repeat;
+//
+//    animation.removedOnCompletion = NO;
+//
+//    return animation;
+//}
 
 - (void)addAnimationWithLayer:(CALayer *)layer
 {
@@ -342,7 +372,6 @@ static char *kBtnKey = "kBtnKey";
 
 - (void)addAnimationForHideBtn:(UIButton *)btn
 {
-  
     
     CGPoint startPoint = CGPointFromString([NSString stringWithFormat:@"%@",[btn.layer valueForKeyPath:@"position"]]);
     
@@ -398,7 +427,6 @@ static char *kBtnKey = "kBtnKey";
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    
     if (flag) {
         CABasicAnimation * animation = (CABasicAnimation *)anim;
         if ([[anim valueForKey:@"animation"] isEqualToString:@"showAnimation"])

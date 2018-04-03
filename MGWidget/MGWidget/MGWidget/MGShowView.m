@@ -100,7 +100,7 @@
             break;
         case MGEffectStyleCircle:
         {
-            _indicatorLayer.frame = CGRectMake(kScreenWidth/2.0, 200, 10, 10);
+            _indicatorLayer.frame = CGRectMake(kScreenWidth/2.0, 300, 10, 10);
             
             _indicatorLayer.cornerRadius = 5;
             
@@ -146,6 +146,30 @@
 
             _replicatorLayer.masksToBounds = YES;
 
+        }
+            break;
+        case MGEffectStyleWoody:
+        {
+            _indicatorLayer.frame = CGRectMake(0, 0, 5, 100);
+            
+            _indicatorLayer.backgroundColor = MGColor.CGColor;
+            
+            _indicatorLayer.anchorPoint = CGPointMake(0, 0);
+            
+            _indicatorLayer.position = CGPointMake(self.centerX - 120, self.centerY);
+            
+            _indicatorLayer.anchorPoint = CGPointMake(0.5, 0.5);
+            
+            _indicatorLayer.cornerRadius = 2.5;
+            
+            
+            _replicatorLayer.instanceCount = 25;
+
+            _replicatorLayer.instanceTransform = CATransform3DMakeTranslation(10, 0, 0);
+
+            _replicatorLayer.instanceDelay = 1.0 / 5;
+
+            
         }
             break;
         case MGEffectStyleShape:
@@ -219,6 +243,21 @@
             
             _replicatorLayer.instanceColor = MGColor.CGColor;
             
+            MGPatternView *patterView = [[MGPatternView alloc] initWithFrame:CGRectMake(kScreenWidth - 60, self.height - 60, 50, 50)];
+            
+            patterView.motorDirection = MGMotorDirectionUp;
+            
+            patterView.subViews = [self countItems];
+            
+            [patterView setPatterviewBlock:^(NSInteger index) {
+                
+                UIButton *btn = [self countItems][index];
+                
+                DLog(@">>> %@", btn.titleLabel.text);
+                
+            }];
+            
+            [self addSubview:patterView];
         }
             break;
         default:
@@ -226,6 +265,42 @@
     }
     
     [_indicatorLayer addAnimationWithEffectType:type];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    self.replicatorLayer.frame = self.bounds;
+}
+
+
+- (NSArray <UIButton *>*)countItems
+{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    NSInteger tag = 0;
+    for (NSString *title in @[@"3", @"4", @"5", @"6"]) {
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [button setTitle:title forState:UIControlStateNormal];
+        
+        button.frame = CGRectMake(0, 0, 40, 40);
+        
+        button.layer.cornerRadius = button.height / 2.0f;
+        
+        button.backgroundColor = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.5f];
+        
+        button.clipsToBounds = YES;
+        
+        button.tag = tag++;
+        
+        [array addObject:button];
+    }
+    return array.copy;
 }
 
 - (NSArray <UIButton *>*)subViews
@@ -253,15 +328,7 @@
         
         [array addObject:button];
     }
-    
     return array.copy;
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    self.replicatorLayer.frame = self.bounds;
 }
 
 - (CAShapeLayer *)indicatorLayer
@@ -299,3 +366,4 @@
 }
 
 @end
+

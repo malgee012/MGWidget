@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, MGEffectStyle) {
     MGEffectStyleThimble,
     MGEffectStyleCircle,
     MGEffectStyleStrip,
+    MGEffectStyleWoody,
     MGEffectStyleShape,
     MGEffectStyleLinear, 
     MGEffectStyleTriangle
