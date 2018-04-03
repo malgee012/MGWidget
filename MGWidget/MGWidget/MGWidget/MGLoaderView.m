@@ -11,6 +11,8 @@
 
 @property (strong, nonatomic) CAShapeLayer *indicatorLayer;
 
+@property (strong, nonatomic) CAReplicatorLayer *replicatorLayer;
+
 @end
 @implementation MGLoaderView
 
@@ -27,7 +29,27 @@
         
         self.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
         
-        [self.layer addSublayer:self.indicatorLayer];
+        [self.layer addSublayer:self.replicatorLayer];
+        
+        [self.replicatorLayer addSublayer:self.indicatorLayer];
+        
+//        CGFloat kMargin = 0.5;
+//
+//        CALayer *line = [[CALayer alloc] init];
+//
+//        line.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
+//
+//        line.frame = CGRectMake((self.width - kMargin) * 0.5, 0, kMargin, self.height);
+//
+//        [self.layer addSublayer:line];
+//
+//        CALayer *line2 = [[CALayer alloc] init];
+//
+//        line2.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
+//
+//        line2.frame = CGRectMake(0, (self.height - kMargin) * 0.5, self.width, kMargin);
+//
+//        [self.layer addSublayer:line2];
     }
     return self;
 }
@@ -37,20 +59,31 @@
     switch (style) {
         case MGLoaderStyleTriangle:
             {
-                self.indicatorLayer.frame = CGRectMake(self.width / 2.0, 0, 8, 8);
+                _indicatorLayer.frame = CGRectMake((self.width - 8) / 2.0, self.width * 0.2, 8, 8);
                 
-                self.indicatorLayer.cornerRadius = 4;
+                _indicatorLayer.cornerRadius = 4;
                 
+                _indicatorLayer.backgroundColor = MGColor.CGColor;
                 
-                
-                
+                _replicatorLayer.instanceCount = 3;
+
+                _replicatorLayer.instanceDelay = 2.0 / 3.0;
+
+                _replicatorLayer.instanceColor = kBgColor.CGColor;
                 
             }
             break;
             
-        default:
-            break;
     }
+    
+    [_indicatorLayer addAnimationWithLoaderStyle:style];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    self.replicatorLayer.frame = self.bounds;
 }
 
 - (CAShapeLayer *)indicatorLayer
@@ -64,4 +97,18 @@
     return _indicatorLayer;
 }
 
+- (CAReplicatorLayer *)replicatorLayer
+{
+    if (!_replicatorLayer) {
+        
+        _replicatorLayer = [CAReplicatorLayer layer];
+        
+        _replicatorLayer.backgroundColor = [UIColor clearColor].CGColor;
+        
+        _replicatorLayer.shouldRasterize = YES;
+        
+        _replicatorLayer.rasterizationScale = [[UIScreen mainScreen] scale];
+    }
+    return _replicatorLayer;
+}
 @end

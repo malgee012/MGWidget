@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1542E10820707DCA000E8330 /* MGPatternView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1542E10720707DCA000E8330 /* MGPatternView.m */; };
+		1548D01B20735696006DA610 /* earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 1548D01A20735696006DA610 /* earth.png */; };
+		1548D01F20737045006DA610 /* NSObject+LoadTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548D01E20737045006DA610 /* NSObject+LoadTool.m */; };
 		157D46E6206BAABC00A0BC22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D46E5206BAABC00A0BC22 /* AppDelegate.m */; };
 		157D46E9206BAABC00A0BC22 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D46E8206BAABC00A0BC22 /* ViewController.m */; };
 		157D46EC206BAABC00A0BC22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 157D46EA206BAABC00A0BC22 /* Main.storyboard */; };
@@ -45,6 +47,9 @@
 /* Begin PBXFileReference section */
 		1542E10620707DCA000E8330 /* MGPatternView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGPatternView.h; sourceTree = "<group>"; };
 		1542E10720707DCA000E8330 /* MGPatternView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGPatternView.m; sourceTree = "<group>"; };
+		1548D01A20735696006DA610 /* earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earth.png; sourceTree = "<group>"; };
+		1548D01D20737045006DA610 /* NSObject+LoadTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+LoadTool.h"; sourceTree = "<group>"; };
+		1548D01E20737045006DA610 /* NSObject+LoadTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LoadTool.m"; sourceTree = "<group>"; };
 		157D46E1206BAABC00A0BC22 /* MGWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		157D46E4206BAABC00A0BC22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		157D46E5206BAABC00A0BC22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -136,6 +141,7 @@
 				157D46ED206BAABC00A0BC22 /* Assets.xcassets */,
 				157D4733206E3BB600A0BC22 /* plus_circle@2x.png */,
 				157D4734206E3BB600A0BC22 /* plus_circle@3x.png */,
+				1548D01A20735696006DA610 /* earth.png */,
 				157D46EF206BAABC00A0BC22 /* LaunchScreen.storyboard */,
 				157D46F2206BAABC00A0BC22 /* Info.plist */,
 				157D46F3206BAABC00A0BC22 /* main.m */,
@@ -172,6 +178,8 @@
 				1542E10720707DCA000E8330 /* MGPatternView.m */,
 				157D4726206CEAA400A0BC22 /* NSObject+common.h */,
 				157D4727206CEAA400A0BC22 /* NSObject+common.m */,
+				1548D01D20737045006DA610 /* NSObject+LoadTool.h */,
+				1548D01E20737045006DA610 /* NSObject+LoadTool.m */,
 				157D4716206BABBA00A0BC22 /* UIView+Frame.h */,
 				157D4717206BABBA00A0BC22 /* UIView+Frame.m */,
 			);
@@ -288,6 +296,7 @@
 				157D4735206E3BB700A0BC22 /* plus_circle@2x.png in Resources */,
 				157D46F1206BAABC00A0BC22 /* LaunchScreen.storyboard in Resources */,
 				157D46EE206BAABC00A0BC22 /* Assets.xcassets in Resources */,
+				1548D01B20735696006DA610 /* earth.png in Resources */,
 				157D46EC206BAABC00A0BC22 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +325,7 @@
 				1542E10820707DCA000E8330 /* MGPatternView.m in Sources */,
 				157D4728206CEAA400A0BC22 /* NSObject+common.m in Sources */,
 				157D4722206CCCC000A0BC22 /* MGShowController.m in Sources */,
+				1548D01F20737045006DA610 /* NSObject+LoadTool.m in Sources */,
 				157D4718206BABBA00A0BC22 /* UIView+Frame.m in Sources */,
 				157D46E9206BAABC00A0BC22 /* ViewController.m in Sources */,
 				157D46F4206BAABC00A0BC22 /* main.m in Sources */,

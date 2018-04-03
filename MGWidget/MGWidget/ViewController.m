@@ -36,7 +36,7 @@ static NSString *const reuseIdentifiter = @"cellID";
                     @"MGEffectStyleWoody",
                     @"MGEffectStyleShape",
                     @"MGEffectStyleLinear",
-                    @"MGEffectStyleTriangle"],
+                    @"MGEffectStyleInverted"],
                     @[@"MGLoaderStyleTriangle"]
                     ].mutableCopy;
 }

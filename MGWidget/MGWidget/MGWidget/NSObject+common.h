@@ -16,14 +16,10 @@ typedef NS_ENUM(NSInteger, MGEffectStyle) {
     MGEffectStyleStrip,
     MGEffectStyleWoody,
     MGEffectStyleShape,
-    MGEffectStyleLinear, 
-    MGEffectStyleTriangle
+    MGEffectStyleLinear,
+    MGEffectStyleInverted,
 };
 
-typedef NS_ENUM(NSInteger, MGLoaderStyle) {
-    
-    MGLoaderStyleTriangle
-};
 
 @interface NSObject (common)<CAAnimationDelegate>
 
@@ -31,6 +27,6 @@ typedef NS_ENUM(NSInteger, MGLoaderStyle) {
 
 - (void)addAnimationWithEffectType:(MGEffectStyle)type;
 
-- (void)setupLineBtnShowStatus:(BOOL)status btnArray:(NSArray *)btnArray;
+//- (void)setupLineBtnShowStatus:(BOOL)status btnArray:(NSArray *)btnArray;
 
 @end

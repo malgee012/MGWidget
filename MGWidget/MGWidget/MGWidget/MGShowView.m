@@ -55,7 +55,6 @@
         
         line2.frame = CGRectMake(0, (self.height - 0.5) * 0.5, kScreenWidth, 0.5);
         
-        
         [self.layer addSublayer:line2];
         
     }
@@ -187,7 +186,6 @@
 
             _replicatorLayer.instanceColor = [UIColor redColor].CGColor;
             
-            
         }
             break;
         case MGEffectStyleLinear:
@@ -229,39 +227,13 @@
         
         }
             break;
-        case MGEffectStyleTriangle:
+        case MGEffectStyleInverted:
         {
-            _indicatorLayer.frame = CGRectMake((self.width - 8) / 2.0, 100, 8, 8);
             
-            _indicatorLayer.cornerRadius = 4;
-            
-            _indicatorLayer.backgroundColor = MGColor.CGColor;
-            
-            _replicatorLayer.instanceCount = 3;
-            
-            _replicatorLayer.instanceDelay = 1;
-            
-            _replicatorLayer.instanceColor = MGColor.CGColor;
-            
-            MGPatternView *patterView = [[MGPatternView alloc] initWithFrame:CGRectMake(kScreenWidth - 60, self.height - 60, 50, 50)];
-            
-            patterView.motorDirection = MGMotorDirectionUp;
-            
-            patterView.subViews = [self countItems];
-            
-            [patterView setPatterviewBlock:^(NSInteger index) {
-                
-                UIButton *btn = [self countItems][index];
-                
-                DLog(@">>> %@", btn.titleLabel.text);
-                
-            }];
-            
-            [self addSubview:patterView];
+        
         }
             break;
-        default:
-            break;
+       
     }
     
     [_indicatorLayer addAnimationWithEffectType:type];
@@ -272,35 +244,6 @@
     [super layoutSubviews];
     
     self.replicatorLayer.frame = self.bounds;
-}
-
-
-- (NSArray <UIButton *>*)countItems
-{
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    
-    NSInteger tag = 0;
-    for (NSString *title in @[@"3", @"4", @"5", @"6"]) {
-        
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        
-        [button setTitle:title forState:UIControlStateNormal];
-        
-        button.frame = CGRectMake(0, 0, 40, 40);
-        
-        button.layer.cornerRadius = button.height / 2.0f;
-        
-        button.backgroundColor = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.5f];
-        
-        button.clipsToBounds = YES;
-        
-        button.tag = tag++;
-        
-        [array addObject:button];
-    }
-    return array.copy;
 }
 
 - (NSArray <UIButton *>*)subViews
