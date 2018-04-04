@@ -34,6 +34,8 @@ static char *kViewWidthKey = "kViewWidthKey";
             [tPath closePath];
         }
             break;
+        default:
+            break;
     }
     
     return tPath;
@@ -58,7 +60,6 @@ static char *kViewWidthKey = "kViewWidthKey";
     switch (style) {
         case MGLoaderStyleTriangle:
         {
-            
             CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
             
             animation.path = [self pathWithLoaderStyle:style].CGPath;
@@ -70,7 +71,28 @@ static char *kViewWidthKey = "kViewWidthKey";
             [layer addAnimation:animation forKey:animation.keyPath];
         }
             break;
+        case MGLoaderStyleCationDot:
+        {
+            
+        }
+            break;
+        case MGLoaderStyleExpandDot:
+        {
+            CABasicAnimation *animation = [self animationKeyPath:@"transform.scale"
+                                                              to:@(1.5)
+                                                        duration:0.5
+                                                      isReverses:YES
+                                                      repeatTime:INFINITY];
+                        
+            [layer addAnimation:animation forKey:animation.keyPath];
+            
+        }
+            break;
+        default:
+            break;
     }
 }
+
+
 
 @end

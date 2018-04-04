@@ -27,6 +27,16 @@ typedef NS_ENUM(NSInteger, MGEffectStyle) {
 
 - (void)addAnimationWithEffectType:(MGEffectStyle)type;
 
-//- (void)setupLineBtnShowStatus:(BOOL)status btnArray:(NSArray *)btnArray;
+//- (CABasicAnimation *)animationKeyPath:(NSString *)keyPath
+//                                  from:(NSNumber *)fromValue
+//                                    to:(NSNumber *)toValue
+//                              duration:(CFTimeInterval)duration
+//                            repeatTime:(CGFloat)repeat;
+
+- (CABasicAnimation *)animationKeyPath:(NSString *)keyPath
+                                    to:(NSNumber *)toValue
+                              duration:(CFTimeInterval)duration
+                            isReverses:(BOOL)isReverses
+                            repeatTime:(CGFloat)repeat;
 
 @end

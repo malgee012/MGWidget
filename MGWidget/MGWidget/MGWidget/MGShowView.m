@@ -75,8 +75,7 @@
             break;
         case MGEffectStyleThimble:
         {
-            
-            _indicatorLayer.frame = CGRectMake((kScreenWidth - 10) * 0.5, 200, 10, 10);
+            _indicatorLayer.frame = CGRectMake((kScreenWidth - 10) * 0.5, 196, 10, 10);
             
             _indicatorLayer.cornerRadius = 5;
             
@@ -85,7 +84,7 @@
             
             _replicatorLayer.instanceCount = 30;
             
-            _replicatorLayer.instanceDelay = 6.0 / 30;
+            _replicatorLayer.instanceDelay = 5.0 / 30;
             
             _replicatorLayer.instanceColor = MGColor.CGColor;
             
@@ -256,6 +255,8 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [button setTitleColor:MGColor forState:UIControlStateHighlighted];
         
         [button setTitle:title forState:UIControlStateNormal];
         

@@ -83,7 +83,7 @@
             
             animation.path = [self pathWithEffectType:type].CGPath;
             
-            animation.duration = 6;
+            animation.duration = 5;
             
             animation.repeatCount = MAXFLOAT;
             

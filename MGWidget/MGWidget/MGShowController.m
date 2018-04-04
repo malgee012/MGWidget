@@ -64,15 +64,39 @@
         
         [patterView setPatterviewBlock:^(NSInteger index) {
             
-            UIButton *btn = [self countItems][index];
-            
-            DLog(@">>> %@", btn.titleLabel.text);
+            [self selectLoaderStyle:index];
             
         }];
         
         [self.view addSubview:patterView];
     }
 }
+
+- (void)selectLoaderStyle:(MGLoaderStyle)style
+{
+    DLog(@">>> %ld", style);
+    
+    for (UIView *view in self.view.subviews) {
+        
+        if (![view isKindOfClass:[MGPatternView class]]) {
+            
+            [view removeFromSuperview];
+        }
+    }
+    
+    MGLoaderView *loaderView = [MGLoaderView loader];
+    
+    loaderView.centerX = self.view.centerX;
+    
+    loaderView.centerY = self.view.centerY;
+    
+    loaderView.style = style;
+    
+    [self.view addSubview:loaderView];
+    
+    
+}
+
 
 - (NSArray <UIButton *>*)countItems
 {

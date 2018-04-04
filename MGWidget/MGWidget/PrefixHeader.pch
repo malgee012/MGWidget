@@ -31,6 +31,8 @@
 
 #define kBgColor [UIColor colorWithRed:0.50f green:0.45f blue:0.93f alpha:1.00f]
 
+#define kOtherColor [UIColor colorWithRed:1.00f green:0.37f blue:0.84f alpha:1.00f]
+
 
 #ifdef DEBUG   
 #define DLog(fmt, ...) NSLog((@"[Line %d] " fmt), __LINE__, ##__VA_ARGS__)

@@ -7,6 +7,7 @@
 //
 
 #import "MGLoaderView.h"
+#import "MGLoadDotView.h"
 @interface MGLoaderView ()
 
 @property (strong, nonatomic) CAShapeLayer *indicatorLayer;
@@ -73,7 +74,34 @@
                 
             }
             break;
+        case MGLoaderStyleCationDot:
+        {
+            MGLoadDotView *loadView = [[MGLoadDotView alloc] initWithFrame:self.bounds];
             
+            [loadView showAnimationView];
+            
+            [self addSubview:loadView];
+        }
+            break;
+        case MGLoaderStyleExpandDot:
+        {
+            _indicatorLayer.frame = CGRectMake(20, (self.height - 6) * 0.5, 6, 6);
+            
+            _indicatorLayer.cornerRadius = 3;
+            
+            _indicatorLayer.backgroundColor = MGColor.CGColor;
+            
+            _replicatorLayer.instanceCount = 5;
+            
+            _replicatorLayer.instanceDelay = 1.0 / 5;
+            
+            _replicatorLayer.instanceColor = MGColor.CGColor;
+            
+            _replicatorLayer.instanceTransform = CATransform3DMakeTranslation(12, 0, 0);
+        
+        }
+            break;
+     
     }
     
     [_indicatorLayer addAnimationWithLoaderStyle:style];

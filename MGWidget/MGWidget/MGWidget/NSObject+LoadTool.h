@@ -12,7 +12,10 @@
 
 typedef NS_ENUM(NSInteger, MGLoaderStyle) {
     
-    MGLoaderStyleTriangle
+    MGLoaderStyleTriangle,
+    MGLoaderStyleCationDot,
+    MGLoaderStyleExpandDot
+    
 };
 
 //@property (nonatomic, assign) CGFloat _kViewWidth;

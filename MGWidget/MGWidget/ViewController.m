@@ -30,14 +30,16 @@ static NSString *const reuseIdentifiter = @"cellID";
     
     _styleArray = @[
                     @[@"MGEffectStyleDrop",
-                    @"MGEffectStyleThimble",
-                    @"MGEffectStyleCircle",
-                    @"MGEffectStyleStrip",
-                    @"MGEffectStyleWoody",
-                    @"MGEffectStyleShape",
-                    @"MGEffectStyleLinear",
-                    @"MGEffectStyleInverted"],
-                    @[@"MGLoaderStyleTriangle"]
+                      @"MGEffectStyleThimble",
+                      @"MGEffectStyleCircle",
+                      @"MGEffectStyleStrip",
+                      @"MGEffectStyleWoody",
+                      @"MGEffectStyleShape",
+                      @"MGEffectStyleLinear",
+                      @"MGEffectStyleInverted"],
+                    @[@"MGLoaderStyleTriangle",
+                      @"MGLoaderStyleCationDot",
+                      @"MGLoaderStyleExpandDot"]
                     ].mutableCopy;
 }
 
@@ -80,7 +82,7 @@ static NSString *const reuseIdentifiter = @"cellID";
     
     label.textAlignment = NSTextAlignmentCenter;
     
-    label.textColor = MGColor;
+    label.textColor = kBgColor;
     
     if (section == 0)
     {
@@ -92,6 +94,11 @@ static NSString *const reuseIdentifiter = @"cellID";
     }
     
     return label;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
