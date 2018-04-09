@@ -14,7 +14,8 @@ typedef NS_ENUM(NSInteger, MGLoaderStyle) {
     
     MGLoaderStyleTriangle,
     MGLoaderStyleCationDot,
-    MGLoaderStyleExpandDot
+    MGLoaderStyleExpandDot,
+    MGLoaderStyleShipDot
     
 };
 

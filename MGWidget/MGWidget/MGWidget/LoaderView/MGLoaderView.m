@@ -8,6 +8,7 @@
 
 #import "MGLoaderView.h"
 #import "MGLoadDotView.h"
+#import "MGWorshipView.h"
 @interface MGLoaderView ()
 
 @property (strong, nonatomic) CAShapeLayer *indicatorLayer;
@@ -60,7 +61,7 @@
     switch (style) {
         case MGLoaderStyleTriangle:
             {
-                _indicatorLayer.frame = CGRectMake((self.width - 8) / 2.0, self.width * 0.2, 8, 8);
+                _indicatorLayer.frame = CGRectMake((self.width - 8) / 2.0, self.width * 0.3, 8, 8);
                 
                 _indicatorLayer.cornerRadius = 4;
                 
@@ -99,6 +100,13 @@
             
             _replicatorLayer.instanceTransform = CATransform3DMakeTranslation(12, 0, 0);
         
+        }
+            break;
+        case MGLoaderStyleShipDot:
+        {
+            MGWorshipView *shipView = [[MGWorshipView alloc] initWithFrame:self.bounds];
+            
+            [self addSubview:shipView];
         }
             break;
      

@@ -19,9 +19,13 @@ static char *kViewWidthKey = "kViewWidthKey";
     switch (style) {
         case MGLoaderStyleTriangle:
         {
-            CGFloat kTop = self.kViewWidth * 0.2;
+            CGFloat topRatio = 0.3;
             
-            CGFloat kHeight = self.kViewWidth * 0.6;
+            CGFloat ratio = 1 - topRatio * 2;
+            
+            CGFloat kTop = self.kViewWidth * topRatio;
+            
+            CGFloat kHeight = self.kViewWidth * ratio;
             
             tPath = [UIBezierPath bezierPath];
             

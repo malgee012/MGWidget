@@ -94,7 +94,6 @@
     
     [self.view addSubview:loaderView];
     
-    
 }
 
 

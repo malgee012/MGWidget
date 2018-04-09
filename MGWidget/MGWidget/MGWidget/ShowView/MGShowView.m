@@ -98,7 +98,7 @@
             break;
         case MGEffectStyleCircle:
         {
-            _indicatorLayer.frame = CGRectMake(kScreenWidth/2.0, 300, 10, 10);
+            _indicatorLayer.frame = CGRectMake(kScreenWidth/2.0, 330, 10, 10);
             
             _indicatorLayer.cornerRadius = 5;
             

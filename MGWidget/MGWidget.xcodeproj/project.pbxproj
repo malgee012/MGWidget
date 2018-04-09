@@ -11,6 +11,7 @@
 		1548D01B20735696006DA610 /* earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 1548D01A20735696006DA610 /* earth.png */; };
 		1548D01F20737045006DA610 /* NSObject+LoadTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548D01E20737045006DA610 /* NSObject+LoadTool.m */; };
 		1548D02220747D7D006DA610 /* MGLoadDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548D02120747D7D006DA610 /* MGLoadDotView.m */; };
+		1548D0272075A6AB006DA610 /* MGWorshipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548D0262075A6AB006DA610 /* MGWorshipView.m */; };
 		157D46E6206BAABC00A0BC22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D46E5206BAABC00A0BC22 /* AppDelegate.m */; };
 		157D46E9206BAABC00A0BC22 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D46E8206BAABC00A0BC22 /* ViewController.m */; };
 		157D46EC206BAABC00A0BC22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 157D46EA206BAABC00A0BC22 /* Main.storyboard */; };
@@ -53,6 +54,8 @@
 		1548D01E20737045006DA610 /* NSObject+LoadTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LoadTool.m"; sourceTree = "<group>"; };
 		1548D02020747D7D006DA610 /* MGLoadDotView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGLoadDotView.h; sourceTree = "<group>"; };
 		1548D02120747D7D006DA610 /* MGLoadDotView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGLoadDotView.m; sourceTree = "<group>"; };
+		1548D0252075A6AB006DA610 /* MGWorshipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGWorshipView.h; sourceTree = "<group>"; };
+		1548D0262075A6AB006DA610 /* MGWorshipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGWorshipView.m; sourceTree = "<group>"; };
 		157D46E1206BAABC00A0BC22 /* MGWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		157D46E4206BAABC00A0BC22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		157D46E5206BAABC00A0BC22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -109,6 +112,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1548D0232075A46B006DA610 /* LoaderView */ = {
+			isa = PBXGroup;
+			children = (
+				157D4730206E0FEF00A0BC22 /* MGLoaderView.h */,
+				157D4731206E0FEF00A0BC22 /* MGLoaderView.m */,
+				1548D02020747D7D006DA610 /* MGLoadDotView.h */,
+				1548D02120747D7D006DA610 /* MGLoadDotView.m */,
+				1548D0252075A6AB006DA610 /* MGWorshipView.h */,
+				1548D0262075A6AB006DA610 /* MGWorshipView.m */,
+				1548D01D20737045006DA610 /* NSObject+LoadTool.h */,
+				1548D01E20737045006DA610 /* NSObject+LoadTool.m */,
+			);
+			path = LoaderView;
+			sourceTree = "<group>";
+		};
+		1548D0242075A47C006DA610 /* ShowView */ = {
+			isa = PBXGroup;
+			children = (
+				157D4723206CD18700A0BC22 /* MGShowView.h */,
+				157D4724206CD18700A0BC22 /* MGShowView.m */,
+				1542E10620707DCA000E8330 /* MGPatternView.h */,
+				1542E10720707DCA000E8330 /* MGPatternView.m */,
+				157D4726206CEAA400A0BC22 /* NSObject+common.h */,
+				157D4727206CEAA400A0BC22 /* NSObject+common.m */,
+			);
+			path = ShowView;
+			sourceTree = "<group>";
+		};
 		157D46D8206BAABC00A0BC22 = {
 			isa = PBXGroup;
 			children = (
@@ -173,18 +204,8 @@
 		157D4729206CFD8D00A0BC22 /* MGWidget */ = {
 			isa = PBXGroup;
 			children = (
-				157D4723206CD18700A0BC22 /* MGShowView.h */,
-				157D4724206CD18700A0BC22 /* MGShowView.m */,
-				157D4730206E0FEF00A0BC22 /* MGLoaderView.h */,
-				157D4731206E0FEF00A0BC22 /* MGLoaderView.m */,
-				1548D02020747D7D006DA610 /* MGLoadDotView.h */,
-				1548D02120747D7D006DA610 /* MGLoadDotView.m */,
-				1542E10620707DCA000E8330 /* MGPatternView.h */,
-				1542E10720707DCA000E8330 /* MGPatternView.m */,
-				157D4726206CEAA400A0BC22 /* NSObject+common.h */,
-				157D4727206CEAA400A0BC22 /* NSObject+common.m */,
-				1548D01D20737045006DA610 /* NSObject+LoadTool.h */,
-				1548D01E20737045006DA610 /* NSObject+LoadTool.m */,
+				1548D0242075A47C006DA610 /* ShowView */,
+				1548D0232075A46B006DA610 /* LoaderView */,
 				157D4716206BABBA00A0BC22 /* UIView+Frame.h */,
 				157D4717206BABBA00A0BC22 /* UIView+Frame.m */,
 			);
@@ -336,6 +357,7 @@
 				157D46F4206BAABC00A0BC22 /* main.m in Sources */,
 				157D46E6206BAABC00A0BC22 /* AppDelegate.m in Sources */,
 				157D4725206CD18700A0BC22 /* MGShowView.m in Sources */,
+				1548D0272075A6AB006DA610 /* MGWorshipView.m in Sources */,
 				1548D02220747D7D006DA610 /* MGLoadDotView.m in Sources */,
 				157D4732206E0FEF00A0BC22 /* MGLoaderView.m in Sources */,
 			);
