@@ -41,21 +41,21 @@
         [self.replicatorLayer addSublayer:self.indicatorLayer];
         
         
-        CALayer *line = [[CALayer alloc] init];
-        
-        line.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
-        
-        line.frame = CGRectMake((kScreenWidth - 0.5) * 0.5, 0, 0.5, kScreenHeight);
-        
-        [self.layer addSublayer:line];
-        
-        CALayer *line2 = [[CALayer alloc] init];
-        
-        line2.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
-        
-        line2.frame = CGRectMake(0, (self.height - 0.5) * 0.5, kScreenWidth, 0.5);
-        
-        [self.layer addSublayer:line2];
+//        CALayer *line = [[CALayer alloc] init];
+//        
+//        line.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
+//        
+//        line.frame = CGRectMake((kScreenWidth - 0.5) * 0.5, 0, 0.5, kScreenHeight);
+//        
+//        [self.layer addSublayer:line];
+//        
+//        CALayer *line2 = [[CALayer alloc] init];
+//        
+//        line2.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
+//        
+//        line2.frame = CGRectMake(0, (self.height - 0.5) * 0.5, kScreenWidth, 0.5);
+//        
+//        [self.layer addSublayer:line2];
         
     }
     return self;
