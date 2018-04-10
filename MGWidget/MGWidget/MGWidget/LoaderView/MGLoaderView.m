@@ -106,6 +106,8 @@
         {
             MGWorshipView *shipView = [[MGWorshipView alloc] initWithFrame:self.bounds];
             
+            [shipView showAnimationView];
+            
             [self addSubview:shipView];
         }
             break;

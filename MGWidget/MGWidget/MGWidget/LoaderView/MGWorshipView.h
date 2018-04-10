@@ -10,4 +10,6 @@
 
 @interface MGWorshipView : UIView
 
+- (void)showAnimationView;
+
 @end
