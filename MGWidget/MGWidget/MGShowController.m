@@ -74,8 +74,6 @@
 
 - (void)selectLoaderStyle:(MGLoaderStyle)style
 {
-    DLog(@">>> %ld", style);
-    
     for (UIView *view in self.view.subviews) {
         
         if (![view isKindOfClass:[MGPatternView class]]) {
@@ -102,7 +100,7 @@
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
     NSInteger tag = 0;
-    for (NSString *title in @[@"3", @"4", @"5", @"6"]) {
+    for (NSString *title in @[@"3", @"4", @"5", @"6", @"7"]) {
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         

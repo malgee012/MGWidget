@@ -9,6 +9,7 @@
 #import "MGLoaderView.h"
 #import "MGLoadDotView.h"
 #import "MGWorshipView.h"
+#import "MGChainView.h"
 @interface MGLoaderView ()
 
 @property (strong, nonatomic) CAShapeLayer *indicatorLayer;
@@ -109,6 +110,16 @@
             [shipView showAnimationView];
             
             [self addSubview:shipView];
+        }
+            break;
+        case MGLoaderStyleChain:
+        {
+            MGChainView *chainView = [[MGChainView alloc] initWithFrame:self.bounds];
+            
+            [chainView showAnimationView];
+            
+            [self addSubview:chainView];
+            
         }
             break;
      

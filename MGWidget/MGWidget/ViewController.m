@@ -40,7 +40,8 @@ static NSString *const reuseIdentifiter = @"cellID";
                     @[@"MGLoaderStyleTriangle",
                       @"MGLoaderStyleCationDot",
                       @"MGLoaderStyleExpandDot",
-                      @"MGLoaderStyleShipDot"]
+                      @"MGLoaderStyleShipDot",
+                      @"MGLoaderStyleChain"]
                     ].mutableCopy;
 }
 
