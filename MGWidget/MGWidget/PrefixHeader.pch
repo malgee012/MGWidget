@@ -12,6 +12,7 @@
 #import "UIView+Frame.h"
 #import "NSObject+common.h"
 #import "NSObject+LoadTool.h"
+#import "CALayer+Common.h"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height

@@ -13,3 +13,10 @@
 - (void)showAnimationView;
 
 @end
+
+
+@interface MGAlternationView : UIView
+
+- (void)showAnimationView;
+
+@end

@@ -352,7 +352,7 @@
 
     positionAnimation.toValue             = [NSValue valueWithCGPoint:toValue];
 
-    positionAnimation.beginTime           = CACurrentMediaTime() + (animationDuration * 1.0/self.subViews.count * (index - 1) + 0.03f );
+    positionAnimation.beginTime           = CACurrentMediaTime() + (animationDuration * 1.0/self.subViews.count * (index - 1) );
 
     positionAnimation.fillMode            = kCAFillModeForwards;
 

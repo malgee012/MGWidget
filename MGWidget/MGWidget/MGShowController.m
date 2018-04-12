@@ -100,7 +100,7 @@
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
     NSInteger tag = 0;
-    for (NSString *title in @[@"0️⃣", @"1️⃣", @"2️⃣", @"3️⃣", @"4️⃣", @"5️⃣"]) {
+    for (NSString *title in @[@"0️⃣", @"1️⃣", @"2️⃣", @"3️⃣", @"4️⃣", @"5️⃣", @"6️⃣"]) {
 
         UIButton *button          = [UIButton buttonWithType:UIButtonTypeSystem];
 

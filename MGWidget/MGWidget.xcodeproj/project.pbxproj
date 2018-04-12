@@ -28,6 +28,7 @@
 		157D4735206E3BB700A0BC22 /* plus_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 157D4733206E3BB600A0BC22 /* plus_circle@2x.png */; };
 		157D4736206E3BB700A0BC22 /* plus_circle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 157D4734206E3BB600A0BC22 /* plus_circle@3x.png */; };
 		15A97BF0207F359A006A61AF /* MGAlterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A97BEF207F359A006A61AF /* MGAlterView.m */; };
+		15A97BF6207F6AC0006A61AF /* CALayer+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A97BF5207F6AC0006A61AF /* CALayer+Common.m */; };
 		F8778897207E553700DF1559 /* MGChainView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8778896207E553700DF1559 /* MGChainView.m */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,8 @@
 		157D4734206E3BB600A0BC22 /* plus_circle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus_circle@3x.png"; sourceTree = "<group>"; };
 		15A97BEE207F359A006A61AF /* MGAlterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGAlterView.h; sourceTree = "<group>"; };
 		15A97BEF207F359A006A61AF /* MGAlterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGAlterView.m; sourceTree = "<group>"; };
+		15A97BF4207F6AC0006A61AF /* CALayer+Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+Common.h"; sourceTree = "<group>"; };
+		15A97BF5207F6AC0006A61AF /* CALayer+Common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Common.m"; sourceTree = "<group>"; };
 		F8778895207E553700DF1559 /* MGChainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGChainView.h; sourceTree = "<group>"; };
 		F8778896207E553700DF1559 /* MGChainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGChainView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +134,8 @@
 				F8778896207E553700DF1559 /* MGChainView.m */,
 				15A97BEE207F359A006A61AF /* MGAlterView.h */,
 				15A97BEF207F359A006A61AF /* MGAlterView.m */,
+				15A97BF4207F6AC0006A61AF /* CALayer+Common.h */,
+				15A97BF5207F6AC0006A61AF /* CALayer+Common.m */,
 				1548D01D20737045006DA610 /* NSObject+LoadTool.h */,
 				1548D01E20737045006DA610 /* NSObject+LoadTool.m */,
 			);
@@ -358,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15A97BF6207F6AC0006A61AF /* CALayer+Common.m in Sources */,
 				1542E10820707DCA000E8330 /* MGPatternView.m in Sources */,
 				157D4728206CEAA400A0BC22 /* NSObject+common.m in Sources */,
 				157D4722206CCCC000A0BC22 /* MGShowController.m in Sources */,

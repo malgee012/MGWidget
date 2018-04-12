@@ -132,6 +132,15 @@
             [self addSubview:alterView];
         }
             break;
+        case MGLoaderStyleAlternation:
+        {
+            MGAlternationView *alterView = [[MGAlternationView alloc] initWithFrame:self.bounds];
+            
+            [alterView showAnimationView];
+            
+            [self addSubview:alterView];
+        }
+            break;
      
     }
     
