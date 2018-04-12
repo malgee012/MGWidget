@@ -46,20 +46,20 @@
     {
         
         MGLoaderView *loaderView = [MGLoaderView loader];
-        
-        loaderView.centerX = self.view.centerX;
-        
-        loaderView.centerY = self.view.centerY;
-        
+
+        loaderView.centerX       = self.view.centerX;
+
+        loaderView.centerY       = self.view.centerY;
+
         loaderView.style = (MGLoaderStyle)self.type;
         
         [self.view addSubview:loaderView];
         
         
         MGPatternView *patterView = [[MGPatternView alloc] initWithFrame:CGRectMake(kScreenWidth - 60, self.view.height - 60, 50, 50)];
-        
+
         patterView.motorDirection = MGMotorDirectionUp;
-        
+
         patterView.subViews = [self countItems];
         
         [patterView setPatterviewBlock:^(NSInteger index) {
@@ -81,13 +81,13 @@
             [view removeFromSuperview];
         }
     }
-    
+
     MGLoaderView *loaderView = [MGLoaderView loader];
-    
-    loaderView.centerX = self.view.centerX;
-    
-    loaderView.centerY = self.view.centerY;
-    
+
+    loaderView.centerX       = self.view.centerX;
+
+    loaderView.centerY       = self.view.centerY;
+
     loaderView.style = style;
     
     [self.view addSubview:loaderView];
@@ -100,24 +100,24 @@
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
     NSInteger tag = 0;
-    for (NSString *title in @[@"3", @"4", @"5", @"6", @"7"]) {
-        
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        
+    for (NSString *title in @[@"0️⃣", @"1️⃣", @"2️⃣", @"3️⃣", @"4️⃣", @"5️⃣"]) {
+
+        UIButton *button          = [UIButton buttonWithType:UIButtonTypeSystem];
+
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        
+
         [button setTitle:title forState:UIControlStateNormal];
-        
-        button.frame = CGRectMake(0, 0, 40, 40);
-        
+
+        button.frame              = CGRectMake(0, 0, 40, 40);
+
         button.layer.cornerRadius = button.height / 2.0f;
-        
-        button.backgroundColor = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.5f];
-        
-        button.clipsToBounds = YES;
-        
-        button.tag = tag++;
-        
+
+        button.backgroundColor    = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.5f];
+
+        button.clipsToBounds      = YES;
+
+        button.tag                = tag++;
+
         [array addObject:button];
     }
     return array.copy;

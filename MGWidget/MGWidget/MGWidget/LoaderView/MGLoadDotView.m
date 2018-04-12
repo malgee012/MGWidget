@@ -33,42 +33,42 @@
 
 - (void)showAnimationView
 {
-    CGFloat duration = 1.2;
-    
+    CGFloat duration                = 1.2;
+
     CAKeyframeAnimation *animation1 = [CAKeyframeAnimation animationWithKeyPath:@"position"];
 
-    animation1.path = [self pathTrace1].CGPath;
+    animation1.path                 = [self pathTrace1].CGPath;
 
-    animation1.duration = duration;
+    animation1.duration             = duration;
 
-    animation1.repeatCount = MAXFLOAT;
-    
-    animation1.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
+    animation1.repeatCount          = MAXFLOAT;
+
+    animation1.timingFunction       = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+
     [_dotView1.layer addAnimation:animation1 forKey:animation1.keyPath];
 
     CAKeyframeAnimation *animation2 = [CAKeyframeAnimation animationWithKeyPath:@"position"];
 
-    animation2.path = [self pathTrace2].CGPath;
+    animation2.path                 = [self pathTrace2].CGPath;
 
-    animation2.duration = duration;
+    animation2.duration             = duration;
 
-    animation2.repeatCount = MAXFLOAT;
+    animation2.repeatCount          = MAXFLOAT;
 
-    animation2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
+    animation2.timingFunction       = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+
     [_dotView2.layer addAnimation:animation2 forKey:animation2.keyPath];
 
     CAKeyframeAnimation *animation3 = [CAKeyframeAnimation animationWithKeyPath:@"position"];
 
-    animation3.path = [self pathTrace3].CGPath;
+    animation3.path                 = [self pathTrace3].CGPath;
 
-    animation3.duration = duration;
+    animation3.duration             = duration;
 
-    animation3.repeatCount = MAXFLOAT;
+    animation3.repeatCount          = MAXFLOAT;
 
-    animation3.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
+    animation3.timingFunction       = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+
     [_dotView3.layer addAnimation:animation3 forKey:animation3.keyPath];
 }
 

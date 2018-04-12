@@ -22,13 +22,13 @@
 
 + (instancetype)showWithType:(MGEffectStyle)type
 {
-    MGShowView *show = [[self alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-    
-    show.type = type;
-    
+    MGShowView *show     = [[self alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+
+    show.type            = type;
+
     show.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.2];
-    
-    
+
+
     return show;
 }
 
@@ -41,20 +41,20 @@
         [self.replicatorLayer addSublayer:self.indicatorLayer];
         
         
-//        CALayer *line = [[CALayer alloc] init];
-//        
-//        line.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
-//        
-//        line.frame = CGRectMake((kScreenWidth - 0.5) * 0.5, 0, 0.5, kScreenHeight);
-//        
+//        CALayer *line         = [[CALayer alloc] init];
+//
+//        line.backgroundColor  = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
+//
+//        line.frame            = CGRectMake((kScreenWidth - 0.5) * 0.5, 0, 0.5, kScreenHeight);
+//
 //        [self.layer addSublayer:line];
-//        
-//        CALayer *line2 = [[CALayer alloc] init];
-//        
+//
+//        CALayer *line2        = [[CALayer alloc] init];
+//
 //        line2.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
-//        
-//        line2.frame = CGRectMake(0, (self.height - 0.5) * 0.5, kScreenWidth, 0.5);
-//        
+//
+//        line2.frame           = CGRectMake(0, (self.height - 0.5) * 0.5, kScreenWidth, 0.5);
+//
 //        [self.layer addSublayer:line2];
         
     }
@@ -75,155 +75,155 @@
             break;
         case MGEffectStyleThimble:
         {
-            _indicatorLayer.frame = CGRectMake((kScreenWidth - 10) * 0.5, 196, 10, 10);
-            
-            _indicatorLayer.cornerRadius = 5;
-            
-            _indicatorLayer.backgroundColor = MGColor.CGColor;
-            
-            
-            _replicatorLayer.instanceCount = 30;
-            
-            _replicatorLayer.instanceDelay = 5.0 / 30;
-            
-            _replicatorLayer.instanceColor = MGColor.CGColor;
-            
+            _indicatorLayer.frame                = CGRectMake((kScreenWidth - 10) * 0.5, 196, 10, 10);
+
+            _indicatorLayer.cornerRadius         = 5;
+
+            _indicatorLayer.backgroundColor      = MGColor.CGColor;
+
+
+            _replicatorLayer.instanceCount       = 30;
+
+            _replicatorLayer.instanceDelay       = 5.0 / 30;
+
+            _replicatorLayer.instanceColor       = MGColor.CGColor;
+
             _replicatorLayer.instanceGreenOffset = -0.03;
-            
-            _replicatorLayer.instanceRedOffset = -0.02;
-            
-            _replicatorLayer.instanceBlueOffset = -0.01;
-            
+
+            _replicatorLayer.instanceRedOffset   = -0.02;
+
+            _replicatorLayer.instanceBlueOffset  = -0.01;
+
         }
             break;
         case MGEffectStyleCircle:
         {
-            _indicatorLayer.frame = CGRectMake(kScreenWidth/2.0, 330, 10, 10);
-            
-            _indicatorLayer.cornerRadius = 5;
-            
-            _indicatorLayer.transform = CATransform3DMakeScale(0.2, 0.2, 0.2);
-            
-            _indicatorLayer.backgroundColor = MGColor.CGColor;
-            
-            
-            _replicatorLayer.instanceCount = 12;
-            
-            _replicatorLayer.instanceDelay = 1.0 / 12;
-            
-            CGFloat angle = (2 * M_PI)/self.replicatorLayer.instanceCount;
-            
-            _replicatorLayer.instanceColor = MGColor.CGColor;
-            
-            _replicatorLayer.instanceTransform = CATransform3DMakeRotation(angle, 0, 0, 0.1);
-            
-            _replicatorLayer.instanceBlueOffset = -0.01;
-            
+            _indicatorLayer.frame                = CGRectMake(kScreenWidth/2.0, 330, 10, 10);
+
+            _indicatorLayer.cornerRadius         = 5;
+
+            _indicatorLayer.transform            = CATransform3DMakeScale(0.2, 0.2, 0.2);
+
+            _indicatorLayer.backgroundColor      = MGColor.CGColor;
+
+
+            _replicatorLayer.instanceCount       = 12;
+
+            _replicatorLayer.instanceDelay       = 1.0 / 12;
+
+            CGFloat angle                        = (2 * M_PI)/self.replicatorLayer.instanceCount;
+
+            _replicatorLayer.instanceColor       = MGColor.CGColor;
+
+            _replicatorLayer.instanceTransform   = CATransform3DMakeRotation(angle, 0, 0, 0.1);
+
+            _replicatorLayer.instanceBlueOffset  = -0.01;
+
             _replicatorLayer.instanceGreenOffset = -0.01;
-            
+
         }
             break;
         case MGEffectStyleStrip:
         {
-            _indicatorLayer.frame = CGRectMake(0, 0, 30, self.height * 0.8);
-            
-            _indicatorLayer.backgroundColor = MGColor.CGColor;
-            
-            _indicatorLayer.anchorPoint = CGPointMake(0, 0);
+            _indicatorLayer.frame              = CGRectMake(0, 0, 30, self.height * 0.8);
 
-            _indicatorLayer.position = CGPointMake(self.x + 10, self.y + self.height * 0.8);
-            
-            _indicatorLayer.cornerRadius = 3;
-            
-            
-            _replicatorLayer.instanceCount = 9;
+            _indicatorLayer.backgroundColor    = MGColor.CGColor;
+
+            _indicatorLayer.anchorPoint        = CGPointMake(0, 0);
+
+            _indicatorLayer.position           = CGPointMake(self.x + 10, self.y + self.height * 0.8);
+
+            _indicatorLayer.cornerRadius       = 3;
+
+
+            _replicatorLayer.instanceCount     = 9;
 
             _replicatorLayer.instanceTransform = CATransform3DMakeTranslation(40, 0, 0);
 
-            _replicatorLayer.instanceDelay = 0.3;
+            _replicatorLayer.instanceDelay     = 0.3;
 
-            _replicatorLayer.masksToBounds = YES;
+            _replicatorLayer.masksToBounds     = YES;
 
         }
             break;
         case MGEffectStyleWoody:
         {
-            _indicatorLayer.frame = CGRectMake(0, 0, 5, 100);
-            
-            _indicatorLayer.backgroundColor = MGColor.CGColor;
-            
-            _indicatorLayer.anchorPoint = CGPointMake(0, 0);
-            
-            _indicatorLayer.position = CGPointMake(self.centerX - 120, self.centerY);
-            
-            _indicatorLayer.anchorPoint = CGPointMake(0.5, 0.5);
-            
-            _indicatorLayer.cornerRadius = 2.5;
-            
-            
-            _replicatorLayer.instanceCount = 25;
+            _indicatorLayer.frame              = CGRectMake(0, 0, 5, 100);
+
+            _indicatorLayer.backgroundColor    = MGColor.CGColor;
+
+            _indicatorLayer.anchorPoint        = CGPointMake(0, 0);
+
+            _indicatorLayer.position           = CGPointMake(self.centerX - 120, self.centerY);
+
+            _indicatorLayer.anchorPoint        = CGPointMake(0.5, 0.5);
+
+            _indicatorLayer.cornerRadius       = 2.5;
+
+
+            _replicatorLayer.instanceCount     = 25;
 
             _replicatorLayer.instanceTransform = CATransform3DMakeTranslation(10, 0, 0);
 
-            _replicatorLayer.instanceDelay = 1.0 / 5;
+            _replicatorLayer.instanceDelay     = 1.0 / 5;
 
-            
+
         }
             break;
         case MGEffectStyleShape:
         {
-            _indicatorLayer.frame = self.bounds;
-            
-            _indicatorLayer.path = [self pathWithEffectType:type].CGPath;
-            
-            _indicatorLayer.fillColor = [UIColor redColor].CGColor;
-            
-            
+            _indicatorLayer.frame          = self.bounds;
+
+            _indicatorLayer.path           = [self pathWithEffectType:type].CGPath;
+
+            _indicatorLayer.fillColor      = [UIColor redColor].CGColor;
+
+
             _replicatorLayer.instanceCount = 5;
 
             _replicatorLayer.instanceDelay = 3.0 / 5;
 
             _replicatorLayer.instanceColor = [UIColor redColor].CGColor;
-            
+
         }
             break;
         case MGEffectStyleLinear:
         {
-            
-            MGPatternView *patterView = [[MGPatternView alloc] initWithFrame:CGRectMake(10,kNavigationStatusHeiht + 10, 50, 50)];
-            
-            patterView.motorDirection = MGMotorDirectionRight;
-            
-            patterView.subViews = [self subViews];
-            
+
+            MGPatternView *patterView  = [[MGPatternView alloc] initWithFrame:CGRectMake(10,kNavigationStatusHeiht + 10, 50, 50)];
+
+            patterView.motorDirection  = MGMotorDirectionRight;
+
+            patterView.subViews        = [self subViews];
+
             [patterView setPatterviewBlock:^(NSInteger index) {
-                
-                UIButton *btn = [self subViews][index];
-                
+
+            UIButton *btn              = [self subViews][index];
+
                 DLog(@">>> %@", btn.titleLabel.text);
-                
+
             }];
-            
+
             [self addSubview:patterView];
-            
+
             MGPatternView *patterView3 = [[MGPatternView alloc] initWithFrame:CGRectMake(kScreenWidth - 60, self.height - 60, 50, 50)];
-            
+
             patterView3.motorDirection = MGMotorDirectionUp;
-            
-            patterView3.subViews = [self subViews];
-            
-            patterView3.viewSpacing = 50;
-            
+
+            patterView3.subViews       = [self subViews];
+
+            patterView3.viewSpacing    = 50;
+
             [patterView3 setPatterviewBlock:^(NSInteger index) {
-                
-                UIButton *btn = [self subViews][index];
-                
+
+            UIButton *btn              = [self subViews][index];
+
                 DLog(@">>> %@", btn.titleLabel.text);
-                
+
             }];
-            
+
             [self addSubview:patterView3];
-        
+
         }
             break;
         case MGEffectStyleInverted:

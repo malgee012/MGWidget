@@ -10,6 +10,7 @@
 #import "MGLoadDotView.h"
 #import "MGWorshipView.h"
 #import "MGChainView.h"
+#import "MGAlterView.h"
 @interface MGLoaderView ()
 
 @property (strong, nonatomic) CAShapeLayer *indicatorLayer;
@@ -62,45 +63,45 @@
     switch (style) {
         case MGLoaderStyleTriangle:
             {
-                _indicatorLayer.frame = CGRectMake((self.width - 8) / 2.0, self.width * 0.3, 8, 8);
-                
-                _indicatorLayer.cornerRadius = 4;
-                
-                _indicatorLayer.backgroundColor = MGColor.CGColor;
-                
-                _replicatorLayer.instanceCount = 3;
+                _indicatorLayer.frame           = CGRectMake((self.width - 8) / 2.0, self.width * 0.3, 8, 8);
 
-                _replicatorLayer.instanceDelay = 2.0 / 3.0;
+                _indicatorLayer.cornerRadius    = 4;
 
-                _replicatorLayer.instanceColor = kBgColor.CGColor;
-                
+                _indicatorLayer.backgroundColor = kBgColor.CGColor;
+
+                _replicatorLayer.instanceCount  = 3;
+
+                _replicatorLayer.instanceDelay  = 2.0 / 3.0;
+
+                _replicatorLayer.instanceColor  = kBgColor.CGColor;
+
             }
             break;
         case MGLoaderStyleCationDot:
         {
             MGLoadDotView *loadView = [[MGLoadDotView alloc] initWithFrame:self.bounds];
-            
+
             [loadView showAnimationView];
-            
+
             [self addSubview:loadView];
         }
             break;
         case MGLoaderStyleExpandDot:
         {
-            _indicatorLayer.frame = CGRectMake(20, (self.height - 6) * 0.5, 6, 6);
-            
-            _indicatorLayer.cornerRadius = 3;
-            
-            _indicatorLayer.backgroundColor = MGColor.CGColor;
-            
-            _replicatorLayer.instanceCount = 5;
-            
-            _replicatorLayer.instanceDelay = 1.0 / 5;
-            
-            _replicatorLayer.instanceColor = MGColor.CGColor;
-            
+            _indicatorLayer.frame              = CGRectMake(20, (self.height - 6) * 0.5, 6, 6);
+
+            _indicatorLayer.cornerRadius       = 3;
+
+            _indicatorLayer.backgroundColor    = kBgColor.CGColor;
+
+            _replicatorLayer.instanceCount     = 5;
+
+            _replicatorLayer.instanceDelay     = 1.0 / 5;
+
+            _replicatorLayer.instanceColor     = kBgColor.CGColor;
+
             _replicatorLayer.instanceTransform = CATransform3DMakeTranslation(12, 0, 0);
-        
+
         }
             break;
         case MGLoaderStyleShipDot:
@@ -122,6 +123,15 @@
             
         }
             break;
+        case MGLoaderStyleAlter:
+        {
+            MGAlterView *alterView = [[MGAlterView alloc] initWithFrame:self.bounds];
+            
+            [alterView showAnimationView];
+            
+            [self addSubview:alterView];
+        }
+            break;
      
     }
     
@@ -138,9 +148,9 @@
 - (CAShapeLayer *)indicatorLayer
 {
     if (!_indicatorLayer) {
-        
-        _indicatorLayer = [CAShapeLayer layer];
-        
+
+        _indicatorLayer               = [CAShapeLayer layer];
+
         _indicatorLayer.contentsScale = [[UIScreen mainScreen] scale];
     }
     return _indicatorLayer;
@@ -149,13 +159,13 @@
 - (CAReplicatorLayer *)replicatorLayer
 {
     if (!_replicatorLayer) {
-        
-        _replicatorLayer = [CAReplicatorLayer layer];
-        
-        _replicatorLayer.backgroundColor = [UIColor clearColor].CGColor;
-        
-        _replicatorLayer.shouldRasterize = YES;
-        
+
+        _replicatorLayer                    = [CAReplicatorLayer layer];
+
+        _replicatorLayer.backgroundColor    = [UIColor clearColor].CGColor;
+
+        _replicatorLayer.shouldRasterize    = YES;
+
         _replicatorLayer.rasterizationScale = [[UIScreen mainScreen] scale];
     }
     return _replicatorLayer;

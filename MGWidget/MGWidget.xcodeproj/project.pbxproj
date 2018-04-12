@@ -27,6 +27,7 @@
 		157D4732206E0FEF00A0BC22 /* MGLoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D4731206E0FEF00A0BC22 /* MGLoaderView.m */; };
 		157D4735206E3BB700A0BC22 /* plus_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 157D4733206E3BB600A0BC22 /* plus_circle@2x.png */; };
 		157D4736206E3BB700A0BC22 /* plus_circle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 157D4734206E3BB600A0BC22 /* plus_circle@3x.png */; };
+		15A97BF0207F359A006A61AF /* MGAlterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A97BEF207F359A006A61AF /* MGAlterView.m */; };
 		F8778897207E553700DF1559 /* MGChainView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8778896207E553700DF1559 /* MGChainView.m */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,8 @@
 		157D4731206E0FEF00A0BC22 /* MGLoaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGLoaderView.m; sourceTree = "<group>"; };
 		157D4733206E3BB600A0BC22 /* plus_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus_circle@2x.png"; sourceTree = "<group>"; };
 		157D4734206E3BB600A0BC22 /* plus_circle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus_circle@3x.png"; sourceTree = "<group>"; };
+		15A97BEE207F359A006A61AF /* MGAlterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGAlterView.h; sourceTree = "<group>"; };
+		15A97BEF207F359A006A61AF /* MGAlterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGAlterView.m; sourceTree = "<group>"; };
 		F8778895207E553700DF1559 /* MGChainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGChainView.h; sourceTree = "<group>"; };
 		F8778896207E553700DF1559 /* MGChainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGChainView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +129,8 @@
 				1548D0262075A6AB006DA610 /* MGWorshipView.m */,
 				F8778895207E553700DF1559 /* MGChainView.h */,
 				F8778896207E553700DF1559 /* MGChainView.m */,
+				15A97BEE207F359A006A61AF /* MGAlterView.h */,
+				15A97BEF207F359A006A61AF /* MGAlterView.m */,
 				1548D01D20737045006DA610 /* NSObject+LoadTool.h */,
 				1548D01E20737045006DA610 /* NSObject+LoadTool.m */,
 			);
@@ -366,6 +371,7 @@
 				1548D0272075A6AB006DA610 /* MGWorshipView.m in Sources */,
 				1548D02220747D7D006DA610 /* MGLoadDotView.m in Sources */,
 				157D4732206E0FEF00A0BC22 /* MGLoaderView.m in Sources */,
+				15A97BF0207F359A006A61AF /* MGAlterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

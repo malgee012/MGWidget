@@ -41,7 +41,8 @@ static NSString *const reuseIdentifiter = @"cellID";
                       @"MGLoaderStyleCationDot",
                       @"MGLoaderStyleExpandDot",
                       @"MGLoaderStyleShipDot",
-                      @"MGLoaderStyleChain"]
+                      @"MGLoaderStyleChain",
+                      @"MGLoaderStyleAlter"]
                     ].mutableCopy;
 }
 
@@ -66,13 +67,13 @@ static NSString *const reuseIdentifiter = @"cellID";
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    NSArray *dateArray = _styleArray[indexPath.section];
-    
+
+    NSArray *dateArray  = _styleArray[indexPath.section];
+
     cell.textLabel.text = dateArray[indexPath.row];
-    
-    NSInteger rows = [tableView numberOfRowsInSection:indexPath.section];
-    
+
+    NSInteger rows      = [tableView numberOfRowsInSection:indexPath.section];
+
     cell.backgroundColor = [MGColor colorWithAlphaComponent:(rows - indexPath.row *0.5) / rows];
     
     return cell;
@@ -80,11 +81,11 @@ static NSString *const reuseIdentifiter = @"cellID";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
-    
+    UILabel * label     = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
+
     label.textAlignment = NSTextAlignmentCenter;
-    
-    label.textColor = kBgColor;
+
+    label.textColor     = kBgColor;
     
     if (section == 0)
     {
@@ -116,30 +117,30 @@ static NSString *const reuseIdentifiter = @"cellID";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+
     MGShowController *showVC = [[MGShowController alloc] initWithType:indexPath.row section:indexPath.section];
-    
-    showVC.title = _styleArray[indexPath.section][indexPath.row];
-    
+
+    showVC.title             = _styleArray[indexPath.section][indexPath.row];
+
     [self.navigationController pushViewController:showVC animated:YES];
 }
 
 - (UITableView *)displayTableView
 {
     if (!_displayTableView) {
-        
-        _displayTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-        
+
+        _displayTableView                  = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+
         _displayTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        
-        _displayTableView.delegate = self;
-        
-        _displayTableView.dataSource = self;
-        
-        _displayTableView.separatorColor = [UIColor whiteColor];
-        
-        _displayTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        
+
+        _displayTableView.delegate         = self;
+
+        _displayTableView.dataSource       = self;
+
+        _displayTableView.separatorColor   = [UIColor whiteColor];
+
+        _displayTableView.separatorInset   = UIEdgeInsetsMake(0, 0, 0, 0);
+
     }
     return _displayTableView;
 }

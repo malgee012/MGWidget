@@ -41,18 +41,18 @@
             break;
         case MGEffectStyleShape:
         {
-            UIView *view = (UIView *)self;
-            
+            UIView *view   = (UIView *)self;
+
             CGFloat layerY = (view.height - 45) / 2.0;
-            
-            tPath = [UIBezierPath bezierPath];
-            
+
+            tPath          = [UIBezierPath bezierPath];
+
             [tPath moveToPoint:CGPointMake(kScreenWidth/2.0, layerY)];
-            
+
             [tPath addQuadCurveToPoint:CGPointMake(kScreenWidth/2.0, layerY + 45) controlPoint:CGPointMake(kScreenWidth/2.0 + 55, layerY - 20)];
-            
+
             [tPath addQuadCurveToPoint:CGPointMake(kScreenWidth/2.0, layerY) controlPoint:CGPointMake(kScreenWidth/2.0 - 55, layerY - 20)];
-            
+
             [tPath closePath];
         }
             break;
@@ -78,15 +78,15 @@
             break;
         case MGEffectStyleThimble:
         {
-            
+
             CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-            
-            animation.path = [self pathWithEffectType:type].CGPath;
-            
-            animation.duration = 5;
-            
-            animation.repeatCount = MAXFLOAT;
-            
+
+            animation.path                 = [self pathWithEffectType:type].CGPath;
+
+            animation.duration             = 5;
+
+            animation.repeatCount          = MAXFLOAT;
+
             [layer addAnimation:animation forKey:animation.keyPath];
         }
             break;
@@ -145,18 +145,18 @@
                               duration:(CFTimeInterval)duration
                             repeatTime:(CGFloat)repeat
 {
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:keyPath];
-    
-    animation.fromValue = fromValue;
-    
-    animation.toValue = toValue;
-    
-    animation.duration = duration;
-    
-    animation.repeatCount = repeat;
-    
+    CABasicAnimation *animation   = [CABasicAnimation animationWithKeyPath:keyPath];
+
+    animation.fromValue           = fromValue;
+
+    animation.toValue             = toValue;
+
+    animation.duration            = duration;
+
+    animation.repeatCount         = repeat;
+
     animation.removedOnCompletion = NO;
-    
+
     return animation;
 }
 
@@ -166,45 +166,46 @@
                             isReverses:(BOOL)isReverses
                             repeatTime:(CGFloat)repeat
 {
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:keyPath];
-    
-    animation.toValue = toValue;
-    
-    animation.duration = duration;
-    
-    animation.autoreverses = isReverses;
-    
-    animation.repeatCount = repeat;
+    CABasicAnimation *animation   = [CABasicAnimation animationWithKeyPath:keyPath];
+
+    animation.toValue             = toValue;
+
+    animation.duration            = duration;
+
+    animation.autoreverses        = isReverses;
+
+    animation.repeatCount         = repeat;
+
     
     animation.removedOnCompletion = NO;
-    
+
     return animation;
 }
 
 - (void)addAnimationWithLayer:(CALayer *)layer
 {
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
-    
-    animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(10, 10, 1)];
-    
-    animation.duration = 3;
-    
+    CABasicAnimation *animation  = [CABasicAnimation animationWithKeyPath:@"transform"];
+
+    animation.toValue            = [NSValue valueWithCATransform3D:CATransform3DMakeScale(10, 10, 1)];
+
+    animation.duration           = 3;
+
     CABasicAnimation *animation1 = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    
-    animation1.fromValue = @1;
-    
-    animation1.toValue = @0;
-    
-    animation1.duration = 3;
-    
-    CAAnimationGroup *group = [CAAnimationGroup animation];
-    
-    group.animations = @[animation,animation1];
-    
-    group.duration = 3;
-    
-    group.repeatCount = HUGE;
-    
+
+    animation1.fromValue         = @1;
+
+    animation1.toValue           = @0;
+
+    animation1.duration          = 3;
+
+    CAAnimationGroup *group      = [CAAnimationGroup animation];
+
+    group.animations             = @[animation,animation1];
+
+    group.duration               = 3;
+
+    group.repeatCount            = HUGE;
+
     [layer addAnimation:group forKey:nil];
 }
 

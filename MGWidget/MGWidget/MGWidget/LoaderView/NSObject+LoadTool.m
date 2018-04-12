@@ -20,15 +20,15 @@ static char *kViewWidthKey = "kViewWidthKey";
         case MGLoaderStyleTriangle:
         {
             CGFloat topRatio = 0.3;
-            
-            CGFloat ratio = 1 - topRatio * 2;
-            
-            CGFloat kTop = self.kViewWidth * topRatio;
-            
-            CGFloat kHeight = self.kViewWidth * ratio;
-            
-            tPath = [UIBezierPath bezierPath];
-            
+
+            CGFloat ratio    = 1 - topRatio * 2;
+
+            CGFloat kTop     = self.kViewWidth * topRatio;
+
+            CGFloat kHeight  = self.kViewWidth * ratio;
+
+            tPath            = [UIBezierPath bezierPath];
+
             [tPath moveToPoint:CGPointMake(self.kViewWidth/2.0, kTop)];
 
             [tPath addLineToPoint:CGPointMake(self.kViewWidth/2.0 + sqrt(kHeight * kHeight / 3.0), kTop + kHeight)];
@@ -65,13 +65,13 @@ static char *kViewWidthKey = "kViewWidthKey";
         case MGLoaderStyleTriangle:
         {
             CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-            
-            animation.path = [self pathWithLoaderStyle:style].CGPath;
-            
-            animation.duration = 2;
-            
-            animation.repeatCount = MAXFLOAT;
-            
+
+            animation.path                 = [self pathWithLoaderStyle:style].CGPath;
+
+            animation.duration             = 2;
+
+            animation.repeatCount          = MAXFLOAT;
+
             [layer addAnimation:animation forKey:animation.keyPath];
         }
             break;

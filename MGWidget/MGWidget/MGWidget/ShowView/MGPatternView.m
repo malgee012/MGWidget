@@ -139,25 +139,25 @@
             self.plusBtn.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
             
             for (UIButton *btn in self.subViews) {
-                
+
                 self.width += (_viewSpacing + btn.width);
-                
-                self.x -= (_viewSpacing + btn.width);
+
+                self.x     -= (_viewSpacing + btn.width);
             }
             
             int i = 0;
             for (UIButton * btn in self.subViews) {
-                
-                btn.hidden = NO;
-                
-                fromPosition = CGPointMake(self.width - self.height * 0.5, self.height * 0.5);
-                
-                toPosition = CGPointMake(btn.width * 0.5 + (_viewSpacing + btn.width) * i, self.height * 0.5);
-                
+
+                btn.hidden          = NO;
+
+                fromPosition        = CGPointMake(self.width - self.height * 0.5, self.height * 0.5);
+
+                toPosition          = CGPointMake(btn.width * 0.5 + (_viewSpacing + btn.width) * i, self.height * 0.5);
+
                 [self addAinmationWithView:btn fromValue:fromPosition toValue:toPosition duration:_animationDuration index:i];
-                
+
                 btn.backgroundColor = [UIColor redColor];
-                
+
                 i++;
             }
         }
@@ -191,25 +191,25 @@
             self.plusBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
             
             for (UIButton *btn in self.subViews) {
-                
+
                 self.height += (_viewSpacing + btn.height);
-                
-                self.y -= (_viewSpacing + btn.height);
+
+                self.y      -= (_viewSpacing + btn.height);
             }
             
             int i = 0;
             for (UIButton * btn in self.subViews) {
-                
-                btn.hidden = NO;
-                
-                fromPosition = CGPointMake(self.width * 0.5, self.height - self.width * 0.5);
-                
-                toPosition = CGPointMake(self.width * 0.5, btn.height / 2.0 + (_viewSpacing + btn.height) * i );
-                
+
+                btn.hidden          = NO;
+
+                fromPosition        = CGPointMake(self.width * 0.5, self.height - self.width * 0.5);
+
+                toPosition          = CGPointMake(self.width * 0.5, btn.height / 2.0 + (_viewSpacing + btn.height) * i );
+
                 [self addAinmationWithView:btn fromValue:fromPosition toValue:toPosition duration:_animationDuration index:i];
-                
+
                 btn.backgroundColor = [UIColor redColor];
-                
+
                 i++;
             }
         }
@@ -222,18 +222,18 @@
             
             int i = 0;
             for (UIButton * btn in self.subViews) {
-                
-                btn.hidden = NO;
-                
-                fromPosition = CGPointMake(self.width * 0.5, self.width * 0.5);
-                
-                toPosition = CGPointMake(self.width * 0.5,
+
+                btn.hidden          = NO;
+
+                fromPosition        = CGPointMake(self.width * 0.5, self.width * 0.5);
+
+                toPosition          = CGPointMake(self.width * 0.5,
                                          self.width  + (_viewSpacing + btn.height) * (self.subViews.count - i) - btn.height/2.0);
-                
+
                 [self addAinmationWithView:btn fromValue:fromPosition toValue:toPosition duration:_animationDuration index:i];
-                
+
                 btn.backgroundColor = [UIColor redColor];
-                
+
                 i++;
             }
         }
@@ -251,10 +251,10 @@
     [CATransaction setCompletionBlock:^{
         
         for (UIButton *btn in self.subViews) {
-            
+
             btn.transform = CGAffineTransformIdentity;
-            
-            btn.hidden = YES;
+
+            btn.hidden    = YES;
         }
 
         self.userInteractionEnabled = YES;
@@ -274,55 +274,55 @@
            
             case MGMotorDirectionLeft:
             {
-                self.width -= (_viewSpacing + btn.width);
-                
-                self.x += (_viewSpacing + btn.height);
-                
+                self.width   -= (_viewSpacing + btn.width);
+
+                self.x       += (_viewSpacing + btn.height);
+
                 fromPosition = CGPointMake(btn.width / 2.0 - (_viewSpacing + btn.width) * (self.subViews.count - i),
                                            self.height * 0.5);
-                
-                toPosition = CGPointMake(kSize * 0.5, kSize * 0.5);
-                
+
+                toPosition   = CGPointMake(kSize * 0.5, kSize * 0.5);
+
                 [self hideAinmationWithView:btn fromValue:fromPosition toValue:toPosition duration:_animationDuration index:i];
-                
+
             }
                 break;
             case MGMotorDirectionRight:
             {
-                self.width -= (_viewSpacing + btn.width) ;
-                
+                self.width   -= (_viewSpacing + btn.width) ;
+
                 fromPosition = CGPointMake(self.height + (_viewSpacing + btn.height) * (self.subViews.count - i) - btn.height / 2.0,
                                            self.height * 0.5);
-                toPosition = CGPointMake(kSize * 0.5, kSize * 0.5);
-                
+                toPosition   = CGPointMake(kSize * 0.5, kSize * 0.5);
+
                 [self hideAinmationWithView:btn fromValue:fromPosition toValue:toPosition duration:_animationDuration index:i];
-                
+
             }
                 break;
             case MGMotorDirectionUp:
             {
-                self.height -= (_viewSpacing + btn.height);
-                
-                self.y += (_viewSpacing + btn.height);
-                
+                self.height  -= (_viewSpacing + btn.height);
+
+                self.y       += (_viewSpacing + btn.height);
+
                 fromPosition = CGPointMake(self.width * 0.5,
                                            btn.height / 2.0 - (_viewSpacing + btn.height) * (self.subViews.count - i));
-                
-                toPosition = CGPointMake(kSize * 0.5, kSize * 0.5);
-                
+
+                toPosition   = CGPointMake(kSize * 0.5, kSize * 0.5);
+
                 [self hideAinmationWithView:btn fromValue:fromPosition toValue:toPosition duration:_animationDuration index:i];
-                
+
             }
                 break;
             case MGMotorDirectionDown:
             {
-                self.height -= (_viewSpacing + btn.height);
-                
+                self.height  -= (_viewSpacing + btn.height);
+
                 fromPosition = CGPointMake(self.width * 0.5,
                                            self.width + (_viewSpacing + btn.height) * (self.subViews.count - i) - btn.height / 2.0);
-                
-                toPosition = CGPointMake(kSize * 0.5, kSize * 0.5);
-                
+
+                toPosition   = CGPointMake(kSize * 0.5, kSize * 0.5);
+
                 [self hideAinmationWithView:btn fromValue:fromPosition toValue:toPosition duration:_animationDuration index:i];
             }
            

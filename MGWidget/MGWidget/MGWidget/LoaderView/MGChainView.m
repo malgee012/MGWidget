@@ -20,8 +20,6 @@
 {
     if (self = [super initWithFrame:frame]) {
         
-        self.backgroundColor = [UIColor brownColor];
-        
         [self addSubview:self.bgView];
     }
     return self;
@@ -40,59 +38,59 @@
 
 - (CABasicAnimation *)addAniamtion:(CGPathRef)path durTimes:(CGFloat)time repeatTimes:(CGFloat)repeatTimes
 {
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    
-    animation.fromValue = [NSNumber numberWithFloat:0];
-    
-    animation.toValue = [NSNumber numberWithFloat:1.0];
-    
-    animation.repeatCount = repeatTimes;
-    
-    animation.autoreverses = YES;
-    
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    
-    animation.duration = time;
-    
+    CABasicAnimation *animation   = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+
+    animation.fromValue           = [NSNumber numberWithFloat:0];
+
+    animation.toValue             = [NSNumber numberWithFloat:0.95];
+
+    animation.repeatCount         = repeatTimes;
+
+    animation.autoreverses        = YES;
+
+    animation.timingFunction      = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+
+    animation.duration            = time;
+
     CABasicAnimation* rotationAnimation;
-    
-    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    
-    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2 ];
-    
-    rotationAnimation.duration = 1.0;
-    
+
+    rotationAnimation             = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+
+    rotationAnimation.toValue     = [NSNumber numberWithFloat: M_PI * 2 ];
+
+    rotationAnimation.duration    = 1.0;
+
     rotationAnimation.repeatCount = repeatTimes;
-    
+
     [self.bgView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
-    
+
     return animation;
 }
 
 - (UIBezierPath *)setupSubLayerWithStartAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle
 {
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    
+    UIBezierPath *path  = [UIBezierPath bezierPath];
+
     [path addArcWithCenter:CGPointMake(self.width * 0.5 , self.width * 0.5 ) radius:self.width * 0.25 startAngle:startAngle endAngle:endAngle clockwise:YES];
-    
+
     CAShapeLayer *layer = [[CAShapeLayer alloc] init];
-    
-    layer.frame = self.bounds;
-    
-    layer.fillColor = [UIColor clearColor].CGColor;
-    
-    layer.strokeColor = kBgColor.CGColor;
-    
-    layer.lineWidth = 5;
-    
-    layer.lineCap = kCALineJoinRound;
-    
-    layer.path = path.CGPath;
-    
-    self.chainLayer = layer;
-    
+
+    layer.frame         = self.bounds;
+
+    layer.fillColor     = [UIColor clearColor].CGColor;
+
+    layer.strokeColor   = kBgColor.CGColor;
+
+    layer.lineWidth     = 5;
+
+    layer.lineCap       = kCALineJoinRound;
+
+    layer.path          = path.CGPath;
+
+    self.chainLayer     = layer;
+
     [self.bgView.layer addSublayer:layer];
-    
+
     return path;
 }
 
