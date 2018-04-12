@@ -13,7 +13,7 @@
     BOOL _isClick;
     NSInteger _frequency;
 }
-@property (nonatomic, weak) UIButton *plusBtn;
+@property (nonatomic, weak) UIButton  *plusBtn;
 
 @end
 @implementation MGPatternView
@@ -23,17 +23,17 @@
     _subViews = subViews;
     
     for (UIButton *btn in self.subViews) {
-        
+
         if (btn != nil)
         {
             [self addSubview:btn];
-            
+
             btn.centerX = self.width / 2.0;
-            
+
             btn.centerY = self.height / 2.0;
-            
-            btn.hidden = YES;
-            
+
+            btn.hidden  = YES;
+
             [self sendSubviewToBack:btn];
         }
         
@@ -74,18 +74,18 @@
 
 - (void)setupPlusLinearBtns
 {
-    UIButton *plusBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    
-    self.plusBtn = plusBtn;
-    
+    UIButton *plusBtn          = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+
+    self.plusBtn               = plusBtn;
+
     [plusBtn setBackgroundImage:[UIImage imageNamed:@"plus_circle"] forState:UIControlStateNormal];
-    
+
     [plusBtn addTarget:self action:@selector(clickPlusBtn:) forControlEvents:UIControlEventTouchUpInside];
-    
-    plusBtn.backgroundColor = MGColor;
-    
+
+    plusBtn.backgroundColor    = MGColor;
+
     plusBtn.layer.cornerRadius = 25;
-    
+
     plusBtn.layer.masksToBounds = YES;
     
     [self addSubview:plusBtn];
@@ -115,7 +115,7 @@
     if (self.subViews.count == 0) return;
     
     CGPoint fromPosition = CGPointZero;
-    
+
     CGPoint toPosition = CGPointZero;
 
     [CATransaction begin];
@@ -170,18 +170,18 @@
             
             int i = 0;
             for (UIButton * btn in self.subViews) {
-                
-                btn.hidden = NO;
-                
-                fromPosition = CGPointMake(self.height * 0.5, self.height * 0.5);
-                
-                toPosition = CGPointMake(self.height  + (_viewSpacing + btn.width) * (self.subViews.count - i) - btn.width/2.0,
+
+                btn.hidden          = NO;
+
+                fromPosition        = CGPointMake(self.height * 0.5, self.height * 0.5);
+
+                toPosition          = CGPointMake(self.height  + (_viewSpacing + btn.width) * (self.subViews.count - i) - btn.width/2.0,
                                          self.height * 0.5);
-                
+
                 [self addAinmationWithView:btn fromValue:fromPosition toValue:toPosition duration:_animationDuration index:i];
-                
+
                 btn.backgroundColor = [UIColor redColor];
-                
+
                 i++;
             }
         }
@@ -342,52 +342,52 @@
                     duration:(CGFloat)animationDuration
                        index:(NSInteger)index
 {
-    CABasicAnimation *positionAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
-    
-    positionAnimation.duration = animationDuration;
-    
-    positionAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
-    positionAnimation.fromValue = [NSValue valueWithCGPoint:fromeValue];
-    
-    positionAnimation.toValue = [NSValue valueWithCGPoint:toValue];
-    
-    positionAnimation.beginTime = CACurrentMediaTime() + (animationDuration * 1.0/self.subViews.count * (index - 1) + 0.03f );
-    
-    positionAnimation.fillMode = kCAFillModeForwards;
-    
-    positionAnimation.removedOnCompletion = NO;
-    
-    [view.layer addAnimation:positionAnimation forKey:positionAnimation.keyPath];
-    
-    view.layer.position = toValue;
-    
-    view.center = toValue;
+    CABasicAnimation *positionAnimation   = [CABasicAnimation animationWithKeyPath:@"position"];
 
-    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    
-    scaleAnimation.duration = animationDuration;
-    
-    scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
-    scaleAnimation.fromValue = [NSNumber numberWithFloat:0.01f];
-    
-    scaleAnimation.toValue = [NSNumber numberWithFloat:1.f];
-    
-    scaleAnimation.beginTime = CACurrentMediaTime() + (animationDuration * 1.0/self.subViews.count * index);
-    
-    scaleAnimation.fillMode = kCAFillModeForwards;
-    
-    scaleAnimation.removedOnCompletion = NO;
-    
-    scaleAnimation.delegate = self;
-    
+    positionAnimation.duration            = animationDuration;
+
+    positionAnimation.timingFunction      = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+
+    positionAnimation.fromValue           = [NSValue valueWithCGPoint:fromeValue];
+
+    positionAnimation.toValue             = [NSValue valueWithCGPoint:toValue];
+
+    positionAnimation.beginTime           = CACurrentMediaTime() + (animationDuration * 1.0/self.subViews.count * (index - 1) + 0.03f );
+
+    positionAnimation.fillMode            = kCAFillModeForwards;
+
+    positionAnimation.removedOnCompletion = NO;
+
+    [view.layer addAnimation:positionAnimation forKey:positionAnimation.keyPath];
+
+    view.layer.position                   = toValue;
+
+    view.center                           = toValue;
+
+    CABasicAnimation *scaleAnimation      = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+
+    scaleAnimation.duration               = animationDuration;
+
+    scaleAnimation.timingFunction         = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+
+    scaleAnimation.fromValue              = [NSNumber numberWithFloat:0.01f];
+
+    scaleAnimation.toValue                = [NSNumber numberWithFloat:1.f];
+
+    scaleAnimation.beginTime              = CACurrentMediaTime() + (animationDuration * 1.0/self.subViews.count * index);
+
+    scaleAnimation.fillMode               = kCAFillModeForwards;
+
+    scaleAnimation.removedOnCompletion    = NO;
+
+    scaleAnimation.delegate               = self;
+
     [view.layer addAnimation:scaleAnimation forKey:scaleAnimation.keyPath];
-    
-    view.transform = CGAffineTransformMakeScale(0.01f, 0.01f);
-    
-    _isClick = NO;
-    
+
+    view.transform                        = CGAffineTransformMakeScale(0.01f, 0.01f);
+
+    _isClick                              = NO;
+
 }
 
 - (void)hideAinmationWithView:(UIView *)view
@@ -396,49 +396,49 @@
                     duration:(CGFloat)animationDuration
                        index:(NSInteger)index
 {
-    CABasicAnimation *positionAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
-    
-    positionAnimation.duration = animationDuration;
-    
-    positionAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
-    positionAnimation.fromValue = [NSValue valueWithCGPoint:fromeValue];
-    
-    positionAnimation.toValue = [NSValue valueWithCGPoint:toValue];
-    
-    positionAnimation.beginTime = CACurrentMediaTime() + (animationDuration * 1.0/self.subViews.count * (self.subViews.count - index - 1));
-    
-    positionAnimation.fillMode = kCAFillModeForwards;
-    
+    CABasicAnimation *positionAnimation   = [CABasicAnimation animationWithKeyPath:@"position"];
+
+    positionAnimation.duration            = animationDuration;
+
+    positionAnimation.timingFunction      = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+
+    positionAnimation.fromValue           = [NSValue valueWithCGPoint:fromeValue];
+
+    positionAnimation.toValue             = [NSValue valueWithCGPoint:toValue];
+
+    positionAnimation.beginTime           = CACurrentMediaTime() + (animationDuration * 1.0/self.subViews.count * (self.subViews.count - index - 1));
+
+    positionAnimation.fillMode            = kCAFillModeForwards;
+
     positionAnimation.removedOnCompletion = NO;
-    
+
     [view.layer addAnimation:positionAnimation forKey:positionAnimation.keyPath];
-    
-    view.layer.position = fromeValue;
-    
-    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    
-    scaleAnimation.duration = animationDuration;
-    
-    scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
-    scaleAnimation.fromValue = [NSNumber numberWithFloat:1.f];
-    
-    scaleAnimation.toValue = [NSNumber numberWithFloat:0.001f];
-    
-    scaleAnimation.beginTime = CACurrentMediaTime() + (animationDuration * 1.0/self.subViews.count * (self.subViews.count - index - 1));
-    
-    scaleAnimation.fillMode = kCAFillModeForwards;
-    
-    scaleAnimation.removedOnCompletion = NO;
-    
-    scaleAnimation.delegate = self;
-    
+
+    view.layer.position                   = fromeValue;
+
+    CABasicAnimation *scaleAnimation      = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+
+    scaleAnimation.duration               = animationDuration;
+
+    scaleAnimation.timingFunction         = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+
+    scaleAnimation.fromValue              = [NSNumber numberWithFloat:1.f];
+
+    scaleAnimation.toValue                = [NSNumber numberWithFloat:0.001f];
+
+    scaleAnimation.beginTime              = CACurrentMediaTime() + (animationDuration * 1.0/self.subViews.count * (self.subViews.count - index - 1));
+
+    scaleAnimation.fillMode               = kCAFillModeForwards;
+
+    scaleAnimation.removedOnCompletion    = NO;
+
+    scaleAnimation.delegate               = self;
+
     [view.layer addAnimation:scaleAnimation forKey:scaleAnimation.keyPath];
-    
-    view.transform = CGAffineTransformMakeScale(1.f, 1.f);
-    
-    _isClick = NO;
+
+    view.transform                        = CGAffineTransformMakeScale(1.f, 1.f);
+
+    _isClick                              = NO;
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag

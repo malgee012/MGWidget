@@ -7,9 +7,10 @@
 //
 
 #import "MGChainView.h"
-
+#define kRadians(x)  (M_PI * (x) / 180.0)
 @interface MGChainView ()<CAAnimationDelegate>
 
+@property (nonatomic, strong) UIView *bgView;
 @property (nonatomic, strong) CAShapeLayer *chainLayer;
 
 @end
@@ -20,77 +21,59 @@
     if (self = [super initWithFrame:frame]) {
         
         self.backgroundColor = [UIColor brownColor];
+        
+        [self addSubview:self.bgView];
     }
     return self;
 }
 
 - (void)showAnimationView
 {
-    UIBezierPath *path = [self setupSubLayerWithStartAngle:-M_PI_2 endAngle:M_PI];
+    CGFloat startAngle = -M_PI_2;
     
-    [self.chainLayer addAnimation:[self keyframeAniamtion:path.CGPath durTimes:1 Rep:MAXFLOAT]
-                           forKey:@"animation1"] ;
+    UIBezierPath *path = [self setupSubLayerWithStartAngle:startAngle
+                                                  endAngle:startAngle + kRadians(360)];
     
-    
+    [self.chainLayer addAnimation:[self addAniamtion:path.CGPath durTimes:2 repeatTimes:MAXFLOAT]
+                           forKey:@"groupAnimation1"] ;
 }
 
-- (CABasicAnimation *)keyframeAniamtion:(CGPathRef)path durTimes:(float)time Rep:(float)repeatTimes
+- (CABasicAnimation *)addAniamtion:(CGPathRef)path durTimes:(CGFloat)time repeatTimes:(CGFloat)repeatTimes
 {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     
-    animation.fromValue = [NSNumber numberWithFloat:0.0];
+    animation.fromValue = [NSNumber numberWithFloat:0];
+    
     animation.toValue = [NSNumber numberWithFloat:1.0];
     
-    animation.delegate = self;
-    animation.removedOnCompletion=NO;
-    animation.fillMode=kCAFillModeForwards;
+    animation.repeatCount = repeatTimes;
     
-    [self.chainLayer setValue:animation forKey:@"ani"];
+    animation.autoreverses = YES;
     
-    animation.timingFunction=[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-//    animation.autoreverses=NO;
-    animation.duration=time;
-//    animation.repeatCount=repeatTimes;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     
-    return animation;
-}
-
-- (CABasicAnimation *)keyframeAniamtion2:(CGPathRef)path durTimes:(float)time Rep:(float)repeatTimes
-{
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    animation.duration = time;
     
-    animation.fromValue = [NSNumber numberWithFloat:1.0];
-    animation.toValue = [NSNumber numberWithFloat:0.5];
+    CABasicAnimation* rotationAnimation;
     
-//    animation.delegate = self;
-    animation.removedOnCompletion=NO;
-    animation.fillMode=kCAFillModeForwards;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     
-    animation.timingFunction=[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    //    animation.autoreverses=NO;
-    animation.duration=time;
-    //    animation.repeatCount=repeatTimes;
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2 ];
+    
+    rotationAnimation.duration = 1.0;
+    
+    rotationAnimation.repeatCount = repeatTimes;
+    
+    [self.bgView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
     
     return animation;
-}
-
-
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
-{
-    UIBezierPath *path = [self setupSubLayerWithStartAngle:-M_PI_2 endAngle:M_PI];
-    
-    
-        
-        [self.chainLayer addAnimation:[self keyframeAniamtion2:path.CGPath durTimes:1 Rep:MAXFLOAT]
-                               forKey:@"aniww"];
-    
 }
 
 - (UIBezierPath *)setupSubLayerWithStartAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle
 {
     UIBezierPath *path = [UIBezierPath bezierPath];
     
-    [path addArcWithCenter:CGPointMake(self.width * 0.5 , self.width * 0.5 ) radius:25 startAngle:startAngle endAngle:endAngle clockwise:YES];
+    [path addArcWithCenter:CGPointMake(self.width * 0.5 , self.width * 0.5 ) radius:self.width * 0.25 startAngle:startAngle endAngle:endAngle clockwise:YES];
     
     CAShapeLayer *layer = [[CAShapeLayer alloc] init];
     
@@ -106,13 +89,19 @@
     
     layer.path = path.CGPath;
     
-//    layer.strokeEnd = 1.0;
-    
     self.chainLayer = layer;
     
-    [self.layer addSublayer:layer];
+    [self.bgView.layer addSublayer:layer];
     
     return path;
+}
+
+- (UIView *)bgView
+{
+    if (!_bgView) {
+        _bgView = [[UIView alloc] initWithFrame:self.bounds];
+    }
+    return _bgView;
 }
 
 @end
