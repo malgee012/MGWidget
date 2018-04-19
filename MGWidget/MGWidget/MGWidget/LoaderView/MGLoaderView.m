@@ -11,6 +11,7 @@
 #import "MGWorshipView.h"
 #import "MGChainView.h"
 #import "MGAlterView.h"
+#import "MGRotaLoadView.h"
 @interface MGLoaderView ()
 
 @property (strong, nonatomic) CAShapeLayer *indicatorLayer;
@@ -139,6 +140,15 @@
             [alterView showAnimationView];
             
             [self addSubview:alterView];
+        }
+            break;
+        case MGLoaderStyleRotaDot:
+        {
+            MGRotaLoadView *loadView = [[MGRotaLoadView alloc] initWithFrame:self.bounds];
+            
+            [loadView showAnimationView];
+            
+            [self addSubview:loadView];
         }
             break;
      

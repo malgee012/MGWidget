@@ -49,8 +49,6 @@
         DLog(@"动画结束了1");
         
         
-        
-        
     }
     else if ([[anim valueForKey:@"animatioin"] isEqualToString:@"animation2"])
     {

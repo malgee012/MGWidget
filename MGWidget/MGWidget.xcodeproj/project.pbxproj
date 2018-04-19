@@ -12,6 +12,7 @@
 		1548D01F20737045006DA610 /* NSObject+LoadTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548D01E20737045006DA610 /* NSObject+LoadTool.m */; };
 		1548D02220747D7D006DA610 /* MGLoadDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548D02120747D7D006DA610 /* MGLoadDotView.m */; };
 		1548D0272075A6AB006DA610 /* MGWorshipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548D0262075A6AB006DA610 /* MGWorshipView.m */; };
+		156C376020888E5F002D9339 /* MGRotaLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 156C375F20888E5F002D9339 /* MGRotaLoadView.m */; };
 		157D46E6206BAABC00A0BC22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D46E5206BAABC00A0BC22 /* AppDelegate.m */; };
 		157D46E9206BAABC00A0BC22 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D46E8206BAABC00A0BC22 /* ViewController.m */; };
 		157D46EC206BAABC00A0BC22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 157D46EA206BAABC00A0BC22 /* Main.storyboard */; };
@@ -59,6 +60,8 @@
 		1548D02120747D7D006DA610 /* MGLoadDotView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGLoadDotView.m; sourceTree = "<group>"; };
 		1548D0252075A6AB006DA610 /* MGWorshipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGWorshipView.h; sourceTree = "<group>"; };
 		1548D0262075A6AB006DA610 /* MGWorshipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGWorshipView.m; sourceTree = "<group>"; };
+		156C375E20888E5F002D9339 /* MGRotaLoadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGRotaLoadView.h; sourceTree = "<group>"; };
+		156C375F20888E5F002D9339 /* MGRotaLoadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGRotaLoadView.m; sourceTree = "<group>"; };
 		157D46E1206BAABC00A0BC22 /* MGWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		157D46E4206BAABC00A0BC22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		157D46E5206BAABC00A0BC22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				F8778896207E553700DF1559 /* MGChainView.m */,
 				15A97BEE207F359A006A61AF /* MGAlterView.h */,
 				15A97BEF207F359A006A61AF /* MGAlterView.m */,
+				156C375E20888E5F002D9339 /* MGRotaLoadView.h */,
+				156C375F20888E5F002D9339 /* MGRotaLoadView.m */,
 				15A97BF4207F6AC0006A61AF /* CALayer+Common.h */,
 				15A97BF5207F6AC0006A61AF /* CALayer+Common.m */,
 				1548D01D20737045006DA610 /* NSObject+LoadTool.h */,
@@ -363,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156C376020888E5F002D9339 /* MGRotaLoadView.m in Sources */,
 				15A97BF6207F6AC0006A61AF /* CALayer+Common.m in Sources */,
 				1542E10820707DCA000E8330 /* MGPatternView.m in Sources */,
 				157D4728206CEAA400A0BC22 /* NSObject+common.m in Sources */,

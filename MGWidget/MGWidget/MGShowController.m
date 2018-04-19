@@ -94,13 +94,12 @@
     
 }
 
-
 - (NSArray <UIButton *>*)countItems
 {
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
     NSInteger tag = 0;
-    for (NSString *title in @[@"0️⃣", @"1️⃣", @"2️⃣", @"3️⃣", @"4️⃣", @"5️⃣", @"6️⃣"]) {
+    for (NSString *title in @[@"0️⃣", @"1️⃣", @"2️⃣", @"3️⃣", @"4️⃣", @"5️⃣", @"6️⃣", @"7️⃣"]) {
 
         UIButton *button          = [UIButton buttonWithType:UIButtonTypeSystem];
 

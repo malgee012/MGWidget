@@ -207,27 +207,85 @@
 
 - (void)showAnimationView
 {
-    CABasicAnimation *animation1 = [self.leftDot.layer animationKeyPath:@"position.x"
-                                                               position:CGPointMake(self.leftDot.layer.position.x + 20, self.centerY)
-                                                               duration:1
-                                                                    key:@"animation1"
-                                                             isReverses:NO
-                                                             repeatTime:1];
+    CABasicAnimation *animation1 = [self animationKeyPath:@"position.x"
+                                                 position:CGPointMake(self.leftDot.layer.position.x + 20, self.centerY)
+                                                 duration:1
+                                                      key:@"animation1"
+                                               isReverses:NO
+                                               repeatTime:1];
     [self.leftDot.layer addAnimation:animation1 forKey:animation1.keyPath];
     
     
-    CABasicAnimation *animation2 = [self.rightDot.layer animationKeyPath:@"position.x"
-                                                               position:CGPointMake(self.rightDot.layer.position.x - 20, self.centerY)
-                                                               duration:1
-                                                                    key:@"animation2"
-                                                             isReverses:NO
-                                                             repeatTime:1];
-
-    [self.rightDot.layer addAnimation:animation2 forKey:animation2.keyPath];
+//    CABasicAnimation *animation2 = [self animationKeyPath:@"position.x"
+//                                                               position:CGPointMake(self.rightDot.layer.position.x - 20, self.centerY)
+//                                                               duration:1
+//                                                                    key:@"animation2"
+//                                                             isReverses:YES
+//                                                             repeatTime:1];
+//
+//    [self.rightDot.layer addAnimation:animation2 forKey:animation2.keyPath];
     
 }
 
+- (CABasicAnimation *)animationKeyPath:(NSString *)keyPath
+                              position:(CGPoint)position
+                              duration:(CFTimeInterval)duration
+                                   key:(NSString *)key
+                            isReverses:(BOOL)isReverses
+                            repeatTime:(CGFloat)repeat;
+{
+    
+    CABasicAnimation *animation   = [CABasicAnimation animationWithKeyPath:keyPath];
+    
+    animation.toValue             = @(position.x);
+    
+    animation.duration            = duration;
+    
+    animation.autoreverses        = isReverses;
+    
+    animation.repeatCount         = repeat;
+    
+    animation.additive            = NO;
+    
+    animation.cumulative          = NO;
+    
+    animation.delegate            = self;
+    
+    [animation setValue:key forKey:@"animatioin"];
+    
+    animation.timingFunction      = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    animation.removedOnCompletion = NO;
 
+    animation.fillMode            = kCAFillModeForwards;
+    
+    
+    return animation;
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    
+    
+    if ([[anim valueForKey:@"animatioin"] isEqualToString:@"animation1"]) {
+        
+        DLog(@"动画结束了1");
+        
+        CABasicAnimation *animation1 = [self animationKeyPath:@"position.x"
+                                                     position:CGPointMake(self.leftDot.layer.position.x - 20, self.centerY)
+                                                     duration:1
+                                                          key:@"animation2"
+                                                   isReverses:NO
+                                                   repeatTime:1];
+        [self.leftDot.layer addAnimation:animation1 forKey:animation1.keyPath];
+     
+        
+    }
+    else if ([[anim valueForKey:@"animatioin"] isEqualToString:@"animation2"])
+    {
+        DLog(@"动画结束了2");
+    }
+}
 
 - (UILabel *)leftDot
 {
@@ -273,17 +331,17 @@
 {
     if (!_rightDot) {
         _rightDot                     = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
-        
-        _rightDot.text = @"3";
-        
+
+        _rightDot.text                = @"3";
+
         _rightDot.centerY             = self.centerY;
-        
+
         _rightDot.centerX             = self.centerX + 20;
-        
+
         _rightDot.layer.cornerRadius  = 5;
-        
+
         _rightDot.layer.masksToBounds = YES;
-        
+
         _rightDot.backgroundColor     = self.colors[2];
     }
     return _rightDot;
