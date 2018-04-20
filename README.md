@@ -3,26 +3,28 @@
 
 [demo地址在这里](https://github.com/Maling1255/MGWidget)
 
+### MGEffectStyle
 <p align="center">
 
-<img src="./image/image1.gif" style="zoom:60%" align=center/>
-<img src="./image/image2.gif" style="zoom:60%" align=center/>
-<img src="./image/image3.gif" style="zoom:60%" align=center/>
-<img src="./image/image4.gif" style="zoom:60%" align=center/>
-<img src="./image/image5.gif" style="zoom:60%" align=center/>
-<img src="./image/image6.gif" style="zoom:60%" align=center/>
+<img src="./image/image1.gif" style="zoom:40%" align=center/>
+<img src="./image/image2.gif" style="zoom:40%" align=center/>
+<img src="./image/image3.gif" style="zoom:40%" align=center/>
+<img src="./image/image4.gif" style="zoom:40%" align=center/>
+<img src="./image/image5.gif" style="zoom:40%" align=center/>
+<img src="./image/image6.gif" style="zoom:40%" align=center/>
 </p>
 
+### MGLoaderStyle
 <p align="center">
 
-<img src="./image/icon1.gif" style="zoom:60%" align=center/>
-<img src="./image/icon2.gif" style="zoom:60%" align=center/>
-<img src="./image/icon3.gif" style="zoom:60%" align=center/>
-<img src="./image/icon4.gif" style="zoom:60%" align=center/>
-<img src="./image/icon5.gif" style="zoom:60%" align=center/>
-<img src="./image/icon6.gif" style="zoom:60%" align=center/>
-<img src="./image/icon7.gif" style="zoom:60%" align=center/>
-<img src="./image/icon8.gif" style="zoom:60%" align=center/>
+<img src="./image/icon1.gif" style="zoom:40%" align=center/>
+<img src="./image/icon2.gif" style="zoom:40%" align=center/>
+<img src="./image/icon3.gif" style="zoom:40%" align=center/>
+<img src="./image/icon4.gif" style="zoom:40%" align=center/>
+<img src="./image/icon5.gif" style="zoom:40%" align=center/>
+<img src="./image/icon6.gif" style="zoom:40%" align=center/>
+<img src="./image/icon7.gif" style="zoom:40%" align=center/>
+<img src="./image/icon8.gif" style="zoom:40%" align=center/>
 </p>
 
 
