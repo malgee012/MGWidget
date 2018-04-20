@@ -65,7 +65,6 @@
         [patterView setPatterviewBlock:^(NSInteger index) {
             
             [self selectLoaderStyle:index];
-            
         }];
         
         [self.view addSubview:patterView];
